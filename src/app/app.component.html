@@ -1,0 +1,45 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="''" [routerLinkActive]="'navbar-toggled'">
+          <h6>Home</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="recipes" [routerLinkActive]="'navbar-toggled'">
+          <h6>Popular Tags</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'hot'" [routerLinkActive]="'navbar-toggled'">
+          <h6>Hot</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'trending'" [routerLinkActive]="'navbar-toggled'">
+          <h6>Trending</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'fresh'" [routerLinkActive]="'navbar-toggled'">
+          <h6>Fresh</h6>
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      <a class="usericon" [routerLink]="['user', user.id]">
+        <span class="fa fa-user-circle fa-2x"></span>
+      </a>
+    </form>
+  </div>
+</nav>
+<router-outlet class="container content-body"></router-outlet>
