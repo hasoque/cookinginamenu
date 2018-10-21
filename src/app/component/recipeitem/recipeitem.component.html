@@ -8,7 +8,7 @@
     <p class="card-text">{{description}}</p>
   </div>
   <div class="card-footer">
-    <h6 class="card-title">Uploaded by: <a [routerLink]="['user', userid]">{{uploadername}}</a></h6>
+    <h6 class="card-title">Uploaded by: <a [routerLink]="['/user', userid]">{{uploadername}}</a></h6>
     <h6 class="card-subtitle">Rating: {{trating}}</h6>
     <span class="fa fa-star {{(avgrating < i+1)?'':'checked'}}" *ngFor='let in of counter(5) ;let i = index'></span>
   </div>
