@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface UserModel {
+export class UserModel {
   name: string;
   id: number;
   totalrating: number;
@@ -13,12 +13,13 @@ export interface UserModel {
 })
 export class AppComponent implements OnInit {
   title = 'ciamclient';
-  user: UserModel = {name: 'ja', id: 0, totalrating: 0};
+  user: UserModel;
 
   loggedin() {
-    return true;
+    return this.user === null;
   }
+
   ngOnInit() {
-    this.user.id = 0;
+
   }
 }

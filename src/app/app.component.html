@@ -36,7 +36,7 @@
     </ul>
     <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-      <a class="usericon" [routerLink]="['user', user.id]">
+      <a class="usericon" [routerLink]="['user', loggedin()?user.id:0]">
         <span class="fa fa-user-circle fa-2x"></span>
       </a>
     </form>

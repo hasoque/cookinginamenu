@@ -13,6 +13,7 @@ import { SearchEmptyComponent } from './views/search-empty/search-empty.componen
 import { UserViewComponent } from './views/user-view/user-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
+import { RegisterViewComponent } from './views/register-view/register-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomepageComponent } from './views/homepage/homepage.component';
     SearchEmptyComponent,
     UserViewComponent,
     LoginViewComponent,
-    HomepageComponent
+    HomepageComponent,
+    RegisterViewComponent
   ],
   imports: [
     BrowserModule,
