@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-interface UserModel {
+export interface UserModel {
   name: string;
   id: number;
+  totalrating: number;
 }
 
 @Component({
@@ -12,7 +13,7 @@ interface UserModel {
 })
 export class AppComponent implements OnInit {
   title = 'ciamclient';
-  user: UserModel = {name: 'ja', id: 0};
+  user: UserModel = {name: 'ja', id: 0, totalrating: 0};
 
   loggedin() {
     return true;

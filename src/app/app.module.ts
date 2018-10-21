@@ -12,6 +12,7 @@ import { SearchItemsComponent } from './views/search-items/search-items.componen
 import { SearchEmptyComponent } from './views/search-empty/search-empty.component';
 import { UserViewComponent } from './views/user-view/user-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
+import { HomepageComponent } from './views/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     SearchItemsComponent,
     SearchEmptyComponent,
     UserViewComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     RouterModule.forRoot([
        {
           path: '',
-          component: SearchItemsComponent
+          component: HomepageComponent
        },
        {
           path: 'recipes',
