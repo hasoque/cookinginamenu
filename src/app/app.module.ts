@@ -63,6 +63,14 @@ import { RegisterViewComponent } from './views/register-view/register-view.compo
           component: UserViewComponent
        },
        {
+          path: 'login',
+          component: LoginViewComponent
+       },
+       {
+          path: 'register',
+          component: RegisterViewComponent
+       },
+       {
           path: '**',
           component: SearchEmptyComponent
        }

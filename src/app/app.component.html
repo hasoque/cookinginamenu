@@ -36,9 +36,13 @@
     </ul>
     <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-      <a class="usericon" [routerLink]="['user', loggedin()?user.id:0]">
+      <a *ngIf="loggedin()" class="usericon" [routerLink]="['user', user.id]">
         <span class="fa fa-user-circle fa-2x"></span>
       </a>
+      <div *ngIf="!loggedin()">
+        <a class="btn"  [routerLink]="'/login'" [routerLinkActive]="'navbar-toggled'">Login</a>
+        <a class="btn"  [routerLink]="'/register'" [routerLinkActive]="'navbar-toggled'">Register</a>
+      </div>
     </form>
   </div>
 </nav>
