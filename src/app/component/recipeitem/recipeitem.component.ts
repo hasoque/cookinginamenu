@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../../app.component';
+import * as faker from 'faker';
 
 @Component({
   selector: 'app-recipeitem',
@@ -11,20 +13,20 @@ export class RecipeitemComponent implements OnInit {
   description: string;
   trating: number;
   avgrating: number;
-  uploadername: string;
-  userid: number;
-  recipeid: number;
+  id: number;
+  user: UserModel;
   constructor() {
 
   }
   ngOnInit() {
-    this.name = 'dragon sword';
-    this.uploadername = 'user.name';
-    this.userid = 0;
-    this.recipeid = 0;
-    this.trating = 2323;
-    this.avgrating = 1;
-    this.description = 'dota2 isthebest dota2 isthebest dota2 isthebest dota2 isthebest dota2 isthebest dota2 isthebest dota2 isthebest ';
+    this.name = faker.lorem.words(3);
+    this.id = faker.random.number(100);
+    this.trating = faker.random.number(234);
+    this.avgrating = faker.random.number(3) + 2;
+    this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
+    this.user = new UserModel();
+    this.user.name = faker.name.firstName(faker.random.number(2)) + ' ' + faker.name.lastName(1);
+    this.user.id = faker.random.number(100);
   }
   counter(i: number) {
     return new Array(i);

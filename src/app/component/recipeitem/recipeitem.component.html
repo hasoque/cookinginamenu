@@ -1,15 +1,15 @@
 <div class="card h-100">
-  <a [routerLink]="['/recipe', recipeid]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+  <a [routerLink]="['/recipe', id]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
   <div class="card-body">
     <h4 class="card-title">
-      <a href="#">{{name}}</a>
+      <a [routerLink]="['/recipe', id]">{{name}}</a>
     </h4>
     <h5>$24.99</h5>
     <p class="card-text">{{description}}</p>
   </div>
   <div class="card-footer">
-    <h6 class="card-title">Uploaded by: <a [routerLink]="['/user', userid]">{{uploadername}}</a></h6>
+    <h6 class="card-title">Uploaded by: <a [routerLink]="['/user', user.id]">{{user.name}}</a></h6>
     <h6 class="card-subtitle">Rating: {{trating}}</h6>
-    <span class="fa fa-star {{(avgrating < i+1)?'':'checked'}}" *ngFor='let in of counter(5) ;let i = index'></span>
+    <span class="fa fa-star {{(avgrating < i+1)?'':'checked'}}" *ngFor="let in of counter(5) ;let i = index"></span>
   </div>
 </div>

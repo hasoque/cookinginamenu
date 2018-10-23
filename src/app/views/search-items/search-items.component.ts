@@ -11,24 +11,14 @@ export class SearchItemsComponent implements OnInit {
   recipelist: Array<RecipeitemComponent> = [
     new RecipeitemComponent(),
     new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
   ];
   constructor() { }
+  loadMore() {
+    this.recipelist.push(new RecipeitemComponent());
+    this.recipelist.push(new RecipeitemComponent());
+    this.recipelist.push(new RecipeitemComponent());
+    this.recipelist.push(new RecipeitemComponent());
+  }
 
   ngOnInit() {
   }
