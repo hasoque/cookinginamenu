@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-view.component.css']
 })
 export class RegisterViewComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

@@ -13,6 +13,7 @@ export class UserModel {
 })
 export class AppComponent implements OnInit {
   title = 'ciamclient';
+  showModal = '';
   user: UserModel;
 
   loggedin() {
@@ -21,5 +22,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  public onModalClicked(event: MouseEvent): void {
+    if ((<HTMLElement>event.target).classList.contains('modal')) {
+      this.showModal = '';
+    }
   }
 }
