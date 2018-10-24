@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4 text-center">
-      <img src="http://placehold.it/140x100" alt="">
+      <img src="http://placehold.it/200x150" alt="">
       <div class="info">
         <h5>{{name}}</h5>
-        <h6>Rating - {{avgrating}}({{totalrating}})</h6>
+        <h6>Rating <span style="color:gray">{{avgrating}}({{totalrating}})</span></h6>
+        <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
       </div>
     </div>
     <div class="card col-lg-8">
@@ -15,7 +16,29 @@
       </div>
     </div>
   </div>
-  <div class="row">
-
+  <div class="container">
+    <h5>Contribution</h5>
+    <hr>
+    <div class="list-unstyled row">
+      <li class="list-group-item col-lg-2" style="border:none; padding: 0" *ngFor="let item of contributionstag">
+          <span class="badge badge-secondary">{{item.tagname}}({{item.totalpost}})</span>
+      </li>
+    </div>
+  </div>
+  <div class="container">
+    <h5>Top Recipe Post</h5>
+    <hr>
+    <div class="list-group">
+      <div class="list-group-item" *ngFor="let item of toprecipes">
+        <div class="row">
+          <div class="col-lg-3">
+            <img src="http://placehold.it/240x150" alt=""></div>
+          <div class="col-lg-9">
+            <h6>{{item.name}}</h6>
+            <small>{{item.description}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
