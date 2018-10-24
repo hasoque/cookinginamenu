@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserModel } from '../../app.component';
 import * as faker from 'faker';
 
@@ -15,9 +15,11 @@ export class RecipeitemComponent implements OnInit {
   avgrating: number;
   id: number;
   user: UserModel;
+
   constructor() {
 
   }
+
   ngOnInit() {
     this.name = faker.lorem.words(3);
     this.id = faker.random.number(100);

@@ -3,14 +3,14 @@ import { UserModel, AppComponent} from 'src/app/app.component';
 import {ReviewItemComponent} from 'src/app/component/review-item/review-item.component';
 import * as faker from 'faker';
 
-export class Procedure {
+class Procedure {
   proc: string;
   constructor() {
     this.proc = faker.lorem.sentences(20);
   }
 }
 
-export class Ingredient {
+class Ingredient {
   name: string;
   quantity: string;
 
