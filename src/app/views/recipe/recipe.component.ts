@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { UserModel} from '../../app.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserModel, AppComponent} from 'src/app/app.component';
+import {ReviewItemComponent} from 'src/app/component/review-item/review-item.component';
+import * as faker from 'faker';
 
-interface Review {
-  id: number;
-  name: string;
-  reviewtext: string;
-  rating: number;
-  likes: number;
-  date: Date;
-  reviewer: UserModel;
-}
-
-interface Procedure {
-  stepnumber: string;
+export class Procedure {
   proc: string;
+  constructor() {
+    this.proc = faker.lorem.sentences(20);
+  }
 }
 
-interface Ingredient {
-  ingredientname: string;
+export class Ingredient {
+  name: string;
   quantity: string;
+
+  constructor() {
+    this.name = faker.lorem.words(2);
+    this.quantity = faker.random.number(20) + 'x ';
+  }
 }
 
 @Component({
@@ -28,14 +27,45 @@ interface Ingredient {
 })
 export class RecipeComponent implements OnInit {
 
-  recipename: string;
+  name: string;
   imglink: string;
   taglist: Array<string>;
-  reviewlist: Array<Review>;
+  ingredients: Array<Ingredient>;
+  procedures: Array<Procedure>;
+  reviewlist: Array<ReviewItemComponent>;
   uploader: UserModel;
   date: Date;
+  description: string;
+
   constructor() { }
   ngOnInit() {
-
+    this.name = faker.name.title();
+    this.uploader = new UserModel();
+    this.ingredients = [
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient()
+    ];
+    this.procedures = [
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure()
+    ];
   }
 }

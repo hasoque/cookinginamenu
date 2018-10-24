@@ -14,7 +14,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/recipes" [routerLinkActive]="'navbar-toggled'">
+        <a class="nav-link" [routerLink]="['/recipes', {l: loggedin()}]" [routerLinkActive]="'navbar-toggled'">
           <h6>Popular Tags</h6>
         </a>
       </li>

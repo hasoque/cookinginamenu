@@ -14,6 +14,7 @@ import { UserViewComponent } from './views/user-view/user-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { RegisterViewComponent } from './views/register-view/register-view.component';
+import { ReviewItemComponent } from './component/review-item/review-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RegisterViewComponent } from './views/register-view/register-view.compo
     UserViewComponent,
     LoginViewComponent,
     HomepageComponent,
-    RegisterViewComponent
+    RegisterViewComponent,
+    ReviewItemComponent
   ],
   imports: [
     BrowserModule,
