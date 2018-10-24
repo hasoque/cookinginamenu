@@ -65,7 +65,6 @@ export class UserViewComponent implements OnInit {
       new TagRates(),
       new TagRates(),
       new TagRates(),
-      new TagRates()
     ];
   }
 
