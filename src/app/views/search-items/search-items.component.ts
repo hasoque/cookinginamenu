@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeitemComponent } from '../../component/recipeitem/recipeitem.component';
+import { RecipeModel } from 'src/app/model/recipe-model';
 
 @Component({
   selector: 'app-search-items',
@@ -8,16 +8,16 @@ import { RecipeitemComponent } from '../../component/recipeitem/recipeitem.compo
 })
 export class SearchItemsComponent implements OnInit {
 
-  recipelist: Array<RecipeitemComponent> = [
-    new RecipeitemComponent(),
-    new RecipeitemComponent(),
+  recipelist: Array<RecipeModel> = [
+    new RecipeModel(),
+    new RecipeModel(),
   ];
   constructor() { }
   loadMore() {
-    this.recipelist.push(new RecipeitemComponent());
-    this.recipelist.push(new RecipeitemComponent());
-    this.recipelist.push(new RecipeitemComponent());
-    this.recipelist.push(new RecipeitemComponent());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
   }
 
   ngOnInit() {

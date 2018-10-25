@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as faker from 'faker';
+import { UserModel } from './model/user-model';
 
-export class UserModel {
-  name: string;
-  id: number;
-  totalrating: number;
-  constructor() {
-    this.name = faker.name.firstName() + ' ' + faker.name.lastName();
-    this.id = faker.random.number(10);
-    this.totalrating = faker.random.number(1000) + 10;
-  }
-}
 const counter = function(i: number) {
   return new Array(i);
 };

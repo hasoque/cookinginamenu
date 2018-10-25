@@ -2,14 +2,13 @@
 <div class="container">
 
   <div class="row">
-
     <div class="col-lg-8">
       <div class="card mt-4">
         <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
         <div class="card-body">
-          <h3 class="card-title">{{name}}</h3>
-          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', uploader.id]">{{uploader.name}}</a></h6>
-          <p class="card-text">{{description}}</p>
+          <h3 class="card-title">{{data.name}}</h3>
+          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a></h6>
+          <p class="card-text">{{data.description}}</p>
           <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
           4.0 stars
           <hr>
@@ -17,7 +16,7 @@
             <h4>Ingredients</h4>
             <div class="ingredient-list">
               <ul class="list-unstyled row">
-                <li class="list-group-item col-lg-4" *ngFor="let ingredient of ingredients; let i = index">{{(i+1)}} -
+                <li class="list-group-item col-lg-4" *ngFor="let ingredient of data.ingredients; let i = index">{{(i+1)}} -
                   {{ingredient.quantity}} : {{ingredient.name}}</li>
               </ul>
             </div>
@@ -27,7 +26,7 @@
             <h4>Procedure</h4>
             <div class="ingredient-list">
               <ul class="list-group row">
-                <li class="list-group-item" *ngFor="let step of procedures; let i = index">
+                <li class="list-group-item" *ngFor="let step of data.procedures; let i = index">
                   <h6>Step {{(i+1)}}</h6>
                   <p>{{step.proc}}</p>
                 </li>
@@ -41,10 +40,9 @@
     <div class="col-lg-4">
       <div class="card card-outline-secondary my-4">
         <div class="card-header">
-          Recipe
+          Reviews
         </div>
         <div class="card-body">
-          <h6 class="stepheader"></h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique
             necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia,
             necessitatibus quae sint natus.</p>

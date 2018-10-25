@@ -2,12 +2,7 @@
 <div class="container">
   <tag-input [placeholder]="'type & press enter to add tag'" style="margin-bottom: 30px"></tag-input>
   <div class="row">
-    <app-recipeitem *ngFor="let item of recipelist" class="col-lg-4 col-md-6 mb-4"></app-recipeitem>
-  </div>
-  <div class="row">
-    <div *ngFor="let item of recipelist" class="col-lg-4 col-md-6 mb-4">
-      {{item.name+" "+item.id}}
-    </div>
+    <app-recipeitem [data]="item" *ngFor="let item of recipelist" class="col-lg-4 col-md-6 mb-4"></app-recipeitem>
   </div>
   <div class="container center">
     <a class="btn btn-success" (click)="loadMore()"> Load More </a>

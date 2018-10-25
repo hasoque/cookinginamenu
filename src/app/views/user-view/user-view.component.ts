@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as faker from 'faker';
 import { ReviewItemComponent } from 'src/app/component/review-item/review-item.component';
-import { UserModel } from 'src/app/app.component';
+import { UserModel } from 'src/app/model/user-model';
 
 class TagRates {
   tagname: string;
