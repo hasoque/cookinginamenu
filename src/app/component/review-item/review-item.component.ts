@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { UserModel } from 'src/app/app.component';
+import * as faker from 'faker';
 
 
 @Component({
@@ -15,10 +16,15 @@ export class ReviewItemComponent implements OnInit {
   likes: number;
   date: Date;
   reviewer: UserModel;
-  constructor() { }
+  elementreference: ElementRef;
 
-  ngOnInit() {
-
+  constructor(e: ElementRef) {
+    this.elementreference = e;
   }
-
+  getElementReference() {
+    return this.elementreference;
+  }
+  ngOnInit() {
+    this.id = faker.random.number(200);
+  }
 }

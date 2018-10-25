@@ -2,7 +2,7 @@
   <a [routerLink]="['/recipe', id]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
   <div class="card-body">
     <h4 class="card-title">
-      <a [routerLink]="['/recipe', id]">{{name}}</a>
+      <a [routerLink]="['/recipe', id]">{{name}}{{id}}</a>
     </h4>
     <h5>$24.99</h5>
     <p class="card-text">{{description}}</p>

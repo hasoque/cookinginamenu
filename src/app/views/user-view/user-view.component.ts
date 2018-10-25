@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as faker from 'faker';
 import { ReviewItemComponent } from 'src/app/component/review-item/review-item.component';
+import { UserModel } from 'src/app/app.component';
 
 class TagRates {
   tagname: string;
@@ -8,7 +9,7 @@ class TagRates {
   totalrate: number;
   totalpost: number;
   constructor() {
-    this.tagname = faker.lorem.word();
+    this.tagname = faker.random.word();
     this.avgrate = faker.random.number(5);
     this.totalrate = faker.random.number(100);
     this.totalpost = faker.random.number(1000);
@@ -18,11 +19,13 @@ class VRecipe {
   id: number;
   name: string;
   description: string;
+  user: UserModel;
 
   constructor() {
     this.id = faker.random.number(10);
     this.name = faker.name.title();
     this.description = faker.lorem.sentences(5);
+    this.user = new UserModel();
   }
 }
 @Component({
@@ -43,11 +46,17 @@ export class UserViewComponent implements OnInit {
   datejoined: Date;
 
   constructor() {
+  }
+
+  ngOnInit() {
     this.name = faker.name.firstName() + ' ' + faker.name.lastName();
     this.bio = faker.lorem.paragraphs(5, '\n');
     this.avgrating = faker.random.number(20) / 10 + 3;
     this.totalrating = faker.random.number(1000) + 1000;
     this.datejoined = faker.date.recent(23);
+    this.topreviews = [
+
+    ];
     this.toprecipes = [
       new VRecipe(),
       new VRecipe(),
@@ -66,9 +75,6 @@ export class UserViewComponent implements OnInit {
       new TagRates(),
       new TagRates(),
     ];
-  }
-
-  ngOnInit() {
   }
 
 }
