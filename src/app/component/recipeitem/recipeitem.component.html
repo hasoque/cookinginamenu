@@ -1,19 +1,14 @@
 <div class="card">
-  <a [routerLink]="['/recipe', data.id]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+  <a [routerLink]="['/recipe', data.id]"><img class="card-img-top" src="http://placehold.it/600x350" alt=""></a>
   <div class="card-body">
-    <h4 class="card-title">
-      <a [routerLink]="['/recipe', data.id]">{{data.name}}{{data.id}}</a>
-    </h4>
-    <h5>$24.99</h5>
-    <p class="card-text">{{data.description}}</p>
+    <h5 class="card-title">
+      <a [routerLink]="['/recipe', data.id]">{{data.name.toUpperCase()}}</a>
+    </h5>
+    <small class="card-text">{{data.description}}</small>
   </div>
   <div class="card-footer">
-    <h6 class="card-title">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a></h6>
+    <small class="text-muted">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a><br>Date: {{data.date.toLocaleDateString()}}</small>
     <h6 class="card-subtitle">Rating: {{data.trating}}</h6>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
+    <app-rate-icon></app-rate-icon>
   </div>
 </div>

@@ -40,5 +40,6 @@ export class RecipeModel {
     this.avgrating = faker.random.number(3) + 2;
     this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
     this.uploader = new UserModel();
+    this.date = faker.date.recent(100);
   }
 }
