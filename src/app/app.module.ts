@@ -15,6 +15,9 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { RegisterViewComponent } from './views/register-view/register-view.component';
 import { ReviewItemComponent } from './component/review-item/review-item.component';
+import { RateIconComponent } from './component/rate-icon/rate-icon.component';
+import { UserIconComponent } from './component/user-icon/user-icon.component';
+import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ReviewItemComponent } from './component/review-item/review-item.compone
     LoginViewComponent,
     HomepageComponent,
     RegisterViewComponent,
-    ReviewItemComponent
+    ReviewItemComponent,
+    RateIconComponent,
+    UserIconComponent,
+    DialogModalComponent
   ],
   imports: [
     BrowserModule,
