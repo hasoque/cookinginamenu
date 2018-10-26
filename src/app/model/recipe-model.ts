@@ -12,7 +12,6 @@ class Procedure {
 class Ingredient {
   name: string;
   quantity: string;
-
   constructor() {
     this.name = faker.lorem.words(2);
     this.quantity = faker.random.number(20) + 'x ';

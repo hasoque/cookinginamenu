@@ -35,11 +35,7 @@ class VRecipe {
 })
 export class UserViewComponent implements OnInit {
 
-  id: number;
-  name: string;
-  bio: string;
-  totalrating: number;
-  avgrating: number;
+  info: UserModel;
   topreviews: Array<ReviewItemComponent>;
   toprecipes: Array<VRecipe>;
   contributionstag: Array<TagRates>;
@@ -49,10 +45,7 @@ export class UserViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.name = faker.name.firstName() + ' ' + faker.name.lastName();
-    this.bio = faker.lorem.paragraphs(5, '\n');
-    this.avgrating = faker.random.number(20) / 10 + 3;
-    this.totalrating = faker.random.number(1000) + 1000;
+    this.info = new UserModel();
     this.datejoined = faker.date.recent(23);
     this.topreviews = [
 
