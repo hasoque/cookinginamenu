@@ -46,4 +46,8 @@
     </form>
   </div>
 </nav>
+<app-dialog-modal (click)="modal.onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': modal.visibleAnimate}" [ngStyle]="{'display': modal.visible ? 'block' : 'none', 'opacity': modal.visibleAnimate ? 1 : 0}" role="dialog" #dialog >
+</app-dialog-modal>
+<button (click)="modal.display(true)">click this</button>
+
 <router-outlet class="container content-body"></router-outlet>

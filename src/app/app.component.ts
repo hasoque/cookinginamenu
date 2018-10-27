@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as faker from 'faker';
 import { UserModel } from './model/user-model';
+import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
 
 const counter = function(i: number) {
   return new Array(i);
@@ -13,8 +14,11 @@ const counter = function(i: number) {
 })
 export class AppComponent implements OnInit {
   title = 'ciamclient';
-  showModal = '';
+  @ViewChild('dialog') modal: DialogModalComponent;
   user: UserModel;
+  constructor() {
+
+  }
 
   loggedin() {
     return this.user === null;
@@ -32,8 +36,6 @@ export class AppComponent implements OnInit {
   }
 
   public onModalClicked(event: MouseEvent): void {
-    if ((<HTMLElement>event.target).classList.contains('modal')) {
-      this.showModal = '';
-    }
+    this.modal.onContainerClicked(event);
   }
 }

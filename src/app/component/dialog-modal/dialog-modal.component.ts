@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dialog-modal',
@@ -7,8 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() bodycontent: string;
 
+  public visible = false;
+  public visibleAnimate = false;
+
+  public display(visible: boolean) {
+    console.log(visible);
+    this.visible = visible;
+    setTimeout(() => this.visibleAnimate = visible, 150);
+  }
+
+  public onContainerClicked(event: MouseEvent): void {
+    if ((<HTMLElement>event.target).classList.contains('modal')) {
+      this.display(false);
+    }
+  }
   ngOnInit() {
   }
 
