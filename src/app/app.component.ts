@@ -1,11 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import * as faker from 'faker';
 import { UserModel } from './model/user-model';
 import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
 
-const counter = function(i: number) {
-  return new Array(i);
-};
 
 @Component({
   selector: 'app-root',

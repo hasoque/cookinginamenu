@@ -37,7 +37,7 @@ export class RecipeModel {
     }
     this.name = faker.lorem.words(3);
     this.trating = faker.random.number(234);
-    this.avgrating = faker.random.number(3) + 2;
+    this.avgrating = (faker.random.number(30) + 1) / 10 + 2;
     this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
     this.uploader = new UserModel();
     this.date = faker.date.recent(100);

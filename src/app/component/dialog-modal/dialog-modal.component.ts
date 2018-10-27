@@ -24,6 +24,6 @@ export class DialogModalComponent implements OnInit {
     }
   }
   ngOnInit() {
-  }
 
+  }
 }

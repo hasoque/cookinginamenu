@@ -1,3 +1,4 @@
-<p>
-  rate-icon works!
-</p>
+<input class="input-sm" *ngIf="!visible" (blur)="visible=true" #rateeditor>
+<div (click)="edit?clickedOnEdit():''" *ngIf="visible">
+  <span *ngFor="let x of counter(5); let i = index" class="fa fa-star {{i<score?'checked':''}}"></span>
+</div>
