@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { DialogModalComponent } from '../dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-rate-icon',
@@ -7,7 +8,8 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 })
 export class RateIconComponent {
   @Input() score: number;
-  @Input() show: string; /**what to display on click to dialog - reviews
+  @Input() dialog: DialogModalComponent;
+  @Input() content: string; /**what to display on click to dialog - reviews
                           of recipe, recipes of user or dont display*/
   @Input() edit: boolean;
   @ViewChild('rateeditor') editor: ElementRef;

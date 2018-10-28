@@ -1,3 +1,9 @@
 .checked {
   color: orange;
 }
+.cursor-text{
+  cursor: text;
+}
+.cursor-point{
+  cursor: pointer;
+}
