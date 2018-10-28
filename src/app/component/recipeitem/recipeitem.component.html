@@ -9,6 +9,6 @@
   <div class="card-footer">
     <small class="text-muted">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a><br>Date: {{data.date.toLocaleDateString()}}</small>
     <h6 class="card-subtitle">Rating: {{data.trating}}</h6>
-    <app-rate-icon [score]="data.avgrating" [edit]="true"></app-rate-icon>
+    <app-rate-icon [score]="data.avgrating" [edit]="false"></app-rate-icon>
   </div>
 </div>
