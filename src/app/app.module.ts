@@ -17,6 +17,8 @@ import { RateIconComponent } from './component/rate-icon/rate-icon.component';
 import { UserIconComponent } from './component/user-icon/user-icon.component';
 import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
 import { AuthViewComponent } from './views/auth-view/auth-view.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AuthViewComponent } from './views/auth-view/auth-view.component';
     RateIconComponent,
     UserIconComponent,
     DialogModalComponent,
-    AuthViewComponent
+    AuthViewComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
