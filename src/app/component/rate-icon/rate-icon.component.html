@@ -1,6 +1,7 @@
 <input class="input-sm" *ngIf="!visible" (blur)="visible=true" #rateeditor>
 <div (click)="edit?clickedOnEdit():''" *ngIf="visible">
-  <span class="{{edit?'cursor-text':'cursor-point'}}">
-    <span *ngFor="let x of counter(5); let i = index" class="fa fa-star {{i<score?'checked':''}}"></span>
+  <span class="center-block {{edit?'cursor-text':'cursor-point'}}">
+    <span *ngFor="let x of counter(5); let i = index" class="fa {{!(score-i<1 && score-i>0)||i>score ?(i<score?'fa-star':'fa-star-o'):'fa-star-half-o'}} checked"></span>
+    <small>  {{score}}</small>
   </span>
 </div>

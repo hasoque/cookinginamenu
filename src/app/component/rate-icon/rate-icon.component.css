@@ -7,3 +7,6 @@
 .cursor-point{
   cursor: pointer;
 }
+small{
+  padding: auto;
+}
