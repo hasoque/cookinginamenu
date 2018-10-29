@@ -1,2 +1,13 @@
-<app-login></app-login>
-<app-register></app-register>
+<div class="container" style="width: 40%">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link {{logintab?'active':''}}" (click)="toLogin(true)">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {{!logintab?'active':''}}" (click)="toLogin(false)">Register</a>
+    </li>
+  </ul>
+  <app-login *ngIf="logintab">
+  </app-login>
+  <app-register *ngIf="!logintab"></app-register>
+</div>

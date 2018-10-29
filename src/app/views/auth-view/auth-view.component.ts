@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthViewComponent implements OnInit {
 
-  constructor() { }
+  logintab: boolean;
+  constructor() {
+    this.logintab = true;
+  }
 
   ngOnInit() {
   }
 
+  public toLogin(login: boolean) {
+    this.logintab = login;
+  }
 }
