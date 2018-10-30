@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as faker from 'faker';
 import { ReviewItemComponent } from 'src/app/component/review-item/review-item.component';
 import { UserModel } from 'src/app/model/user-model';
+import { ReviewModel } from 'src/app/model/review-model';
 
 class TagRates {
   tagname: string;
@@ -36,7 +37,7 @@ class VRecipe {
 export class UserViewComponent implements OnInit {
 
   info: UserModel;
-  topreviews: Array<ReviewItemComponent>;
+  topreviews: Array<ReviewModel>;
   toprecipes: Array<VRecipe>;
   contributionstag: Array<TagRates>;
   datejoined: Date;
@@ -48,7 +49,14 @@ export class UserViewComponent implements OnInit {
     this.info = new UserModel();
     this.datejoined = faker.date.recent(23);
     this.topreviews = [
-
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel()
     ];
     this.toprecipes = [
       new VRecipe(),

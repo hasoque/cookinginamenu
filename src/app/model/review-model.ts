@@ -16,5 +16,6 @@ export class ReviewModel {
     this.likes = faker.random.number(1000) + 500;
     this.date = faker.date.recent(20);
     this.reviewer = new UserModel();
+    this.reviewed = new RecipeModel(0, false);
   }
 }

@@ -4,7 +4,7 @@
       <img src="http://placehold.it/200x150" alt="">
       <div class="info">
         <h5>{{info.name}}</h5>
-        <h6>Rating <span style="color:gray">{{info.avgrating}}({{info.totalrating}})</span></h6>
+        <h6><app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.totalrating}})</span></h6>
         <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
       </div>
       <div class="list-unstyled row text-left">
@@ -27,10 +27,17 @@
   <div class="container">
     <div class="list-group">
       <h4>Top Reviews</h4>
-      <li class="list-group-item" *ngFor="let item of contributionstag">
-        <span class="badge badge-secondary">
-          {{item.tagname}}({{item.totalpost}})
-        </span>
+      <li class="list-group-item" *ngFor="let item of topreviews">
+        <div>
+          <small>
+            <a>{{item.reviewed.uploader.name}}'s </a>
+            <a>{{item.reviewed.name}}</a>
+          </small>
+          <br>
+          <small>{{item.reviewtext}}</small>
+          <br>
+          <small>{{item.likes}} Likes</small>
+        </div>
       </li>
     </div>
   </div>

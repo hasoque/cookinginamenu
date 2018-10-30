@@ -31,7 +31,7 @@ export class RecipeModel {
   date: Date;
   description: string;
 
-  constructor(id?: number) {
+  constructor(id?: number, reviewed?: boolean) {
     if (id !== null) {
       this.id = faker.random.number(100);
     }
@@ -58,12 +58,14 @@ export class RecipeModel {
       new Procedure(),
       new Procedure(),
       new Procedure()];
-    this.reviewlist = [new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel()
-    ];
+    if (reviewed) {
+      this.reviewlist = [new ReviewModel(),
+        new ReviewModel(),
+        new ReviewModel(),
+        new ReviewModel(),
+        new ReviewModel(),
+        new ReviewModel()
+      ];
+    }
   }
 }
