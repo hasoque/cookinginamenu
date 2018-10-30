@@ -1,9 +1,8 @@
 import { UserModel } from './user-model';
 import { RecipeModel } from './recipe-model';
+import * as faker from 'faker';
 
 export class ReviewModel {
-  id: number;
-  name: string;
   reviewtext: string;
   rate: number;
   likes: number;
@@ -12,6 +11,10 @@ export class ReviewModel {
   reviewed: RecipeModel;
 
   constructor() {
-
+    this.reviewtext = faker.lorem.paragraph(3);
+    this.rate = faker.random.number(5);
+    this.likes = faker.random.number(1000) + 500;
+    this.date = faker.date.recent(20);
+    this.reviewer = new UserModel();
   }
 }

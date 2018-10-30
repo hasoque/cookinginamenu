@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import * as faker from 'faker';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { ReviewModel } from 'src/app/model/review-model';
 
 
 @Component({
@@ -9,6 +9,7 @@ import * as faker from 'faker';
 })
 export class ReviewItemComponent implements OnInit {
 
+  @Input() data: ReviewModel;
   constructor() {
 
   }

@@ -58,7 +58,12 @@ export class RecipeModel {
       new Procedure(),
       new Procedure(),
       new Procedure()];
-
-    this.reviewlist = new Array<ReviewModel>();
+    this.reviewlist = [new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel()
+    ];
   }
 }

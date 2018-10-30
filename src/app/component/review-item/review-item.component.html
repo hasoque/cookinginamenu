@@ -1,3 +1,10 @@
-<p>
-  review-item works!
-</p>
+<div class="container">
+  <div>
+    <img src="http://placehold.it/64x64" alt="">
+    <a [routerLink]="['/user', data.reviewer.id]" routerLinkActive="router-link-active">{{data.reviewer.name}}</a>
+    <app-rate-icon [score]="data.rate"></app-rate-icon>
+  </div>
+  <small>{{data.reviewtext}}</small>
+  <small>{{data.date.toDateString()}}</small>
+  <div class="float-right"><span class="fa fa-thumbs-up"></span><small>{{data.likes}}</small><span class="fa fa-thumbs-down"></span></div>
+</div>

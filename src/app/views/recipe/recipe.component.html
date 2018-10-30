@@ -43,17 +43,9 @@
           Reviews
         </div>
         <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique
-            necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia,
-            necessitatibus quae sint natus.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique
-            necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia,
-            necessitatibus quae sint natus.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique
-            necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia,
-            necessitatibus quae sint natus.</p>
-          <a class="btn btn-success">Rate & Review</a>
+          <app-review-item [data]="item" *ngFor="let item of data.reviewlist"></app-review-item>
         </div>
+        <a class="btn btn-success">Rate & Review</a>
       </div>
     </div>
   </div>
