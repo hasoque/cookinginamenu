@@ -9,15 +9,15 @@
           <h3 class="card-title">{{data.name}}</h3>
           <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a></h6>
           <p class="card-text">{{data.description}}</p>
-          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          4.0 stars
+          <app-rate-icon [score]="data.avgrating"></app-rate-icon>
           <hr>
           <div class="container">
             <h4>Ingredients</h4>
             <div class="ingredient-list">
               <ul class="list-unstyled row">
-                <li class="list-group-item col-lg-4" *ngFor="let ingredient of data.ingredients; let i = index">{{(i+1)}} -
-                  {{ingredient.quantity}} : {{ingredient.name}}</li>
+                <li class="list-group-item-text col-lg-4"
+                *ngFor="let ingredient of data.ingredients; let i = index">
+                <b>{{(i+1)}}</b>. <span>{{ingredient.quantity}} : {{ingredient.name}}</span></li>
               </ul>
             </div>
           </div>
@@ -52,7 +52,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique
             necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia,
             necessitatibus quae sint natus.</p>
-          <a href="edits" class="btn btn-success">Rate & Review</a>
+          <a class="btn btn-success">Rate & Review</a>
         </div>
       </div>
     </div>

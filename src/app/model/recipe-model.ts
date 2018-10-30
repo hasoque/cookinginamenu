@@ -5,7 +5,7 @@ import * as faker from 'faker';
 class Procedure {
   proc: string;
   constructor() {
-    this.proc = faker.lorem.sentences(20);
+    this.proc = faker.lorem.sentences(10);
   }
 }
 
@@ -41,7 +41,24 @@ export class RecipeModel {
     this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
     this.uploader = new UserModel();
     this.date = faker.date.recent(100);
-    this.ingredients = new Array<Ingredient>();
+    this.ingredients = [new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient(),
+      new Ingredient()];
+    this.procedures = [new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure(),
+      new Procedure()];
+
     this.reviewlist = new Array<ReviewModel>();
   }
 }
