@@ -1,13 +1,3 @@
 .checked {
   color: orange;
 }
-.cursor-text{
-  cursor: text;
-}
-.cursor-point{
-  cursor: pointer;
-}
-.star-icon{
-  padding: 0;
-  margin: 0;
-}

@@ -41,5 +41,7 @@ export class RecipeModel {
     this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
     this.uploader = new UserModel();
     this.date = faker.date.recent(100);
+    this.ingredients = new Array<Ingredient>();
+    this.reviewlist = new Array<ReviewModel>();
   }
 }
