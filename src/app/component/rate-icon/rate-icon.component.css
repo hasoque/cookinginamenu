@@ -7,6 +7,7 @@
 .cursor-point{
   cursor: pointer;
 }
-small{
-  padding: auto;
+.star-icon{
+  padding: 0;
+  margin: 0;
 }

@@ -1,3 +1,6 @@
 .nav-item{
   cursor: pointer;
 }
+.auth-container{
+  max-width: 700px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from 'src/app/model/user-model';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+  password: string;
+  constructor() {
+    this.username = '';
+    this.password = '';
+  }
 
   ngOnInit() {
+  }
+  getUserModel() {
+    const model = new UserModel();
+    model.name = this.username;
+    model.password = this.password;
+    return model;
+
   }
 
 }

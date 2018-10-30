@@ -6,6 +6,7 @@ export class UserModel {
   bio: string;
   totalrating: number;
   avgrating: number;
+  password: string;
   constructor() {
     this.name = faker.name.firstName() + ' ' + faker.name.lastName();
     this.id = faker.random.number(10);

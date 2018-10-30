@@ -1,4 +1,4 @@
-<div class="container" style="width: 40%">
+<div class="container auth-container">
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link {{logintab?'active':''}}" (click)="toLogin(true)">Login</a>
@@ -7,7 +7,9 @@
       <a class="nav-link {{!logintab?'active':''}}" (click)="toLogin(false)">Register</a>
     </li>
   </ul>
-  <app-login *ngIf="logintab">
-  </app-login>
-  <app-register *ngIf="!logintab"></app-register>
+  <div style="margin: 40px">
+    <app-login *ngIf="logintab"></app-login>
+    <app-register *ngIf="!logintab"></app-register>
+    <a class="btn btn-success float-right">{{logintab? 'Login':'Register'}}</a>
+  </div>
 </div>
