@@ -9,12 +9,12 @@
   <div class="collapse navbar-collapse" id="navbarsExample09">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/'" [routerLinkActive]="'navbar-toggled'">
+        <a class="nav-link" [routerLink]="['']" [routerLinkActive]="'navbar-toggled'">
           <h6>Home</h6>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/recipes', {l: loggedin()}]" [routerLinkActive]="'navbar-toggled'">
+        <a class="nav-link" [routerLink]="['/recipes']" [routerLinkActive]="'navbar-toggled'">
           <h6>Popular Tags</h6>
         </a>
       </li>
@@ -46,6 +46,8 @@
     </form>
   </div>
 </nav>
+<button (click)="openModal()">database</button>
+<button (click)="openModal2()">database</button>
 <app-dialog-modal (click)="modal.onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': modal.visibleAnimate}" [ngStyle]="{'display': modal.visible ? 'block' : 'none', 'opacity': modal.visibleAnimate ? 1 : 0}" role="dialog" #dialog >
 </app-dialog-modal>
 <router-outlet class="container content-body"></router-outlet>

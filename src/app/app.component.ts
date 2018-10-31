@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from './model/user-model';
 import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'ciamclient';
   @ViewChild('dialog') modal: DialogModalComponent;
   user: UserModel;
-  constructor() {
+  constructor(private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -25,6 +26,31 @@ export class AppComponent implements OnInit {
   }
   removeUser() {
     this.user = null;
+  }
+
+  openModal() {
+    this.router.navigate([], {
+      queryParams: {
+        newOrdNum: '123'
+      },
+      queryParamsHandling: 'merge',
+      // preserve the existing query params in the route
+      skipLocationChange: false
+      // do not trigger navigation
+    });
+    console.log(this.router);
+  }
+  openModal2() {
+    this.router.navigate([], {
+      queryParams: {
+        oldnum: '123'
+      },
+      queryParamsHandling: 'merge',
+      // preserve the existing query params in the route
+      skipLocationChange: false
+      // do not trigger navigation
+    });
+    console.log(this.router);
   }
 
   ngOnInit() {

@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-modal',
   templateUrl: './dialog-modal.component.html',
-  styleUrls: ['./dialog-modal.component.css']
+  styleUrls: ['./dialog-modal.component.css'],
 })
 export class DialogModalComponent implements OnInit {
 

@@ -18,6 +18,14 @@ export class SearchItemsComponent implements OnInit {
     this.recipelist.push(new RecipeModel());
     this.recipelist.push(new RecipeModel());
     this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
+    this.recipelist.push(new RecipeModel());
   }
 
   ngOnInit() {

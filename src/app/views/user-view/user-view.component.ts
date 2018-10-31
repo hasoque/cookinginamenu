@@ -3,6 +3,7 @@ import * as faker from 'faker';
 import { ReviewItemComponent } from 'src/app/component/review-item/review-item.component';
 import { UserModel } from 'src/app/model/user-model';
 import { ReviewModel } from 'src/app/model/review-model';
+import { RecipeModel } from 'src/app/model/recipe-model';
 
 class TagRates {
   tagname: string;
@@ -49,14 +50,14 @@ export class UserViewComponent implements OnInit {
     this.info = new UserModel();
     this.datejoined = faker.date.recent(23);
     this.topreviews = [
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel()
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel()),
+      new ReviewModel(new RecipeModel())
     ];
     this.toprecipes = [
       new VRecipe(),
