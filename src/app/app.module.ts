@@ -82,7 +82,7 @@ import { RegisterComponent } from './component/register/register.component';
        }
     ])
   ],
-  providers: [],
+  providers: [DialogModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

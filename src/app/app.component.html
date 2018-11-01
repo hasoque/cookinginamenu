@@ -46,8 +46,25 @@
     </form>
   </div>
 </nav>
-<button (click)="openModal()">database</button>
-<button (click)="openModal2()">database</button>
-<app-dialog-modal (click)="modal.onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': modal.visibleAnimate}" [ngStyle]="{'display': modal.visible ? 'block' : 'none', 'opacity': modal.visibleAnimate ? 1 : 0}" role="dialog" #dialog >
+<!-- Dialog Modal -->
+<app-dialog-modal #dialog>
+  <div class="app-modal-header">
+    <h6>{{dialog.data['title']}}</h6>
+  </div>
+  <div class="app-modal-body">
+    <div class="pre-scrollable">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of dialog.data['reviewlist']">
+          <app-review-item [data]="item"></app-review-item>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-default" (click)="modal.display(false)">Close</button>
+  </div>
 </app-dialog-modal>
+<!-- Dialog Modal -->
+
+
 <router-outlet class="container content-body"></router-outlet>

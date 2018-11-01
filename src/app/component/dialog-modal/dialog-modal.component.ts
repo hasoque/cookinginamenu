@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+export interface IHash {
+  [data: string]: any;
+}
 @Component({
   selector: 'app-dialog-modal',
   templateUrl: './dialog-modal.component.html',
@@ -8,13 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DialogModalComponent implements OnInit {
 
-  @Input() bodycontent: string;
-
-  public visible = false;
-  public visibleAnimate = false;
+  private visible = false;
+  private visibleAnimate = false;
+  data: IHash = {};
 
   public display(visible: boolean) {
-    console.log(visible);
     this.visible = visible;
     setTimeout(() => this.visibleAnimate = visible, 150);
   }
@@ -24,6 +25,9 @@ export class DialogModalComponent implements OnInit {
       this.display(false);
     }
   }
+
+
+
   ngOnInit() {
 
   }
