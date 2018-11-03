@@ -6,7 +6,7 @@ import { RecipeModel } from 'src/app/model/recipe-model';
 @Component({
   selector: 'app-review-item',
   templateUrl: './review-item.component.html',
-  styleUrls: ['./review-item.component.css']
+  styleUrls: ['./review-item.component.scss']
 })
 export class ReviewItemComponent implements OnInit, AfterViewInit {
 

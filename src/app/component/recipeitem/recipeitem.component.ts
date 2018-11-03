@@ -6,7 +6,7 @@ import { ReviewModel } from 'src/app/model/review-model';
 @Component({
   selector: 'app-recipeitem',
   templateUrl: './recipeitem.component.html',
-  styleUrls: ['./recipeitem.component.css']
+  styleUrls: ['./recipeitem.component.scss']
 })
 export class RecipeitemComponent implements OnInit {
 
@@ -21,6 +21,8 @@ export class RecipeitemComponent implements OnInit {
 
   onRateClick() {
     this.dialog.dialogModal.data['title'] = (this.data.name + '\'s Reviews').toUpperCase();
+    this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
+    this.dialog.dialogModal.data['type'] = 'reviews';
     this.dialog.dialogModal.data['reviewlist'] = this.data.reviewlist;
     this.dialog.dialogModal.display(true);
   }

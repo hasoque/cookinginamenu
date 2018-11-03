@@ -1,70 +1,34 @@
-<!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExample09">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+  <links>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['']" [routerLinkActive]="'navbar-toggled'">
-          <h6>Home</h6>
-        </a>
+      <li class="nav-item active">
+        <a [routerLink]="['/']" class="nav-link waves-light" mdbWavesEffect>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/recipes']" [routerLinkActive]="'navbar-toggled'">
-          <h6>Popular Tags</h6>
-        </a>
+        <a [routerLink]="['/popular']" class="nav-link waves-light" mdbWavesEffect>Popular Tags</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/hot'" [routerLinkActive]="'navbar-toggled'">
-          <h6>Hot</h6>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/trending'" [routerLinkActive]="'navbar-toggled'">
-          <h6>Trending</h6>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/fresh'" [routerLinkActive]="'navbar-toggled'">
-          <h6>Fresh</h6>
-        </a>
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Explore<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a [routerLink]="['/hot']" class="dropdown-item waves-light" mdbWavesEffect>Hot</a>
+          <a [routerLink]="['/trending']" class="dropdown-item waves-light" mdbWavesEffect>Trending</a>
+          <a [routerLink]="['/fresh']" class="dropdown-item waves-light" mdbWavesEffect>Fresh</a>
+        </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-md-0">
-      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-      <a *ngIf="loggedin()" class="usericon" [routerLink]="['user', user.id]">
-        <span class="fa fa-user-circle fa-2x"></span>
-      </a>
-      <div *ngIf="!loggedin()">
-        <a class="btn" [routerLink]="'/login'" [routerLinkActive]="'navbar-toggled'">Login</a>
-        <a class="btn" [routerLink]="'/register'" [routerLinkActive]="'navbar-toggled'">Register</a>
-      </div>
-    </form>
-  </div>
-</nav>
-<!-- Dialog Modal -->
-<app-dialog-modal #dialog>
-  <div class="app-modal-header">
-    <h6>{{dialog.data['title']}}</h6>
-  </div>
-  <div class="app-modal-body">
-    <div class="pre-scrollable">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of dialog.data['reviewlist']">
-          <app-review-item [data]="item"></app-review-item>
-        </li>
-      </ul>
+    <div>
+      <a class="nav-link waves-light">Login</a>
+      <a class="nav-link waves-light">Register</a>
     </div>
-  </div>
-  <div class="app-modal-footer">
-    <button type="button" class="btn btn-default" (click)="modal.display(false)">Close</button>
-  </div>
+    <div>
+      <span class="fa fa-user-circle-o fa-2x"></span>
+    </div>
+  </links>
+</mdb-navbar>
+<!-- Dialog Modal -->
+<app-dialog-modal class="container" #dialog>
 </app-dialog-modal>
 <!-- Dialog Modal -->
-
-
 <router-outlet class="container content-body"></router-outlet>

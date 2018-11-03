@@ -1,16 +1,34 @@
-<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1"
-  [ngClass]="{'show': visibleAnimate}"
+<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'show': visibleAnimate}"
   [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog {{data['modal-size']}}">
     <div class="modal-content">
       <div class="modal-header">
-        <ng-content select=".app-modal-header"></ng-content>
+        <h6>{{data['title']}}</h6>
+        <span (click)="display(false)" class="btn btn-light fa fa-close" style="margin: 0; padding: 0;"></span>
       </div>
       <div class="modal-body">
-        <ng-content select=".app-modal-body"></ng-content>
+        <div [ngSwitch]="data['type']">
+          <app-login *ngSwitchCase="'login'"></app-login>
+          <app-register *ngSwitchCase="'register'"></app-register>
+          <div *ngSwitchCase="'reviews'" class="review-content">
+            <app-review-item [data]="item" *ngFor="let item of data['reviewlist']"></app-review-item>
+          </div>
+          <div *ngSwitchCase="'confirmation' || 'alert'" class="message-content">
+            {{'confirmation and alert'}}
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <ng-content select=".app-modal-footer"></ng-content>
+        <div *ngIf="data['type'] === 'confirmation'">
+          <span class="btn btn-default">Cancel</span>
+          <span class="btn btn-default">Confirm</span>
+        </div>
+        <div *ngIf="data['type'] === 'alert'">
+          <span class="btn btn-default">OK</span>
+        </div>
+        <div *ngIf="data['type'] === 'login' || 'register'">
+          <span class="btn btn-default">{{data['type'].toUpperCase()}}</span>
+        </div>
       </div>
     </div>
   </div>

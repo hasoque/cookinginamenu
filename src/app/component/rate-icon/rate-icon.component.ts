@@ -4,7 +4,7 @@ import { DialogModalComponent } from '../dialog-modal/dialog-modal.component';
 @Component({
   selector: 'app-rate-icon',
   templateUrl: './rate-icon.component.html',
-  styleUrls: ['./rate-icon.component.css']
+  styleUrls: ['./rate-icon.component.scss']
 })
 export class RateIconComponent {
   @Input() score: number;

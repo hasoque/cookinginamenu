@@ -7,13 +7,17 @@ export interface IHash {
 @Component({
   selector: 'app-dialog-modal',
   templateUrl: './dialog-modal.component.html',
-  styleUrls: ['./dialog-modal.component.css'],
+  styleUrls: ['./dialog-modal.component.scss'],
 })
 export class DialogModalComponent implements OnInit {
 
   private visible = false;
   private visibleAnimate = false;
-  data: IHash = {};
+  data: IHash = {'title' : 'Loading',
+                'type' : 'login',
+                'body': '<app-login></app-login>',
+                'modal-size': ''
+                };
 
   public display(visible: boolean) {
     this.visible = visible;
@@ -25,8 +29,6 @@ export class DialogModalComponent implements OnInit {
       this.display(false);
     }
   }
-
-
 
   ngOnInit() {
 

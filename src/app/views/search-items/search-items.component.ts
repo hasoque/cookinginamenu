@@ -4,7 +4,7 @@ import { RecipeModel } from 'src/app/model/recipe-model';
 @Component({
   selector: 'app-search-items',
   templateUrl: './search-items.component.html',
-  styleUrls: ['./search-items.component.css']
+  styleUrls: ['./search-items.component.scss']
 })
 export class SearchItemsComponent implements OnInit {
 

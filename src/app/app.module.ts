@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
 import { TagInputModule } from 'ngx-chips';
@@ -43,6 +44,7 @@ import { RegisterComponent } from './component/register/register.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
        {
           path: '',
