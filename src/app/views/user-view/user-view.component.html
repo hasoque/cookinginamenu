@@ -1,26 +1,30 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4 text-center">
-      <img src="http://placehold.it/200x150" alt="">
-      <div class="info">
-        <h5>{{info.name}}</h5>
-        <h6><app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.totalrating}})</span></h6>
-        <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center">
+        <img src="http://placehold.it/200x150" alt="">
+        <div class="info">
+          <h5 class="">{{info.name}}</h5>
+          <h6>
+            <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.totalrating}})</span>
+          </h6>
+          <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
+        </div>
+        <div class="list-unstyled row text-left">
+          <small class="col-lg-12">Contribution</small>
+          <li class="list-group-item" style="border:none; padding: 0; padding-right: 10px" *ngFor="let item of contributionstag">
+            <span class="badge badge-secondary">
+              {{item.tagname}}({{item.totalpost}})
+            </span>
+          </li>
+        </div>
       </div>
-      <div class="list-unstyled row text-left">
-        <small class="col-lg-12">Contribution</small>
-        <li class="list-group-item" style="border:none; padding: 0; padding-right: 10px" *ngFor="let item of contributionstag">
-          <span class="badge badge-secondary">
-            {{item.tagname}}({{item.totalpost}})
-          </span>
-        </li>
-      </div>
-    </div>
-    <div class="card col-lg-8">
-      <div class="card-body">
-        <h4 class="card-title"> Biography </h4>
-        <hr>
-        <p class="card-text">{{info.bio}}</p>
+      <div class="card col-lg-8">
+        <div class="card-body">
+          <h4 class="card-title"> Biography </h4>
+          <hr>
+          <p class="card-text">{{info.bio}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -50,9 +54,11 @@
           <div class="col-lg-3">
             <img src="http://placehold.it/240x150" alt=""></div>
           <div class="col-lg-9">
-            <h6>{{item.name}}</h6>
+            <a [routerLink]="['/user', item.id]">
+              <h5>{{item.name}}</h5>
+            </a>
             <small>{{item.description}}</small>
-            <h6>By: <a [routerLink]="['/user', item.user.id]" routerLinkActive="router-link-active">{{item.user.name}}</a></h6>
+            <h6>By: <a [routerLink]="['/user', item.uploader.id]" routerLinkActive="router-link-active">{{item.uploader.name}}</a></h6>
           </div>
         </div>
       </div>

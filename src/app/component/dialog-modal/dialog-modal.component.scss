@@ -1,14 +1,10 @@
 .modal {
   background: rgba(0,0,0,0.6);
 }
-.modal-dialog,
-.modal-content {
-    /* 80% of window height */
-    height: 95%;
+.dmodal-content{
+  height: 96%;
 }
-
-.modal-body {
-    /* 100% = dialog height, 120px = header + footer */
-    max-height: calc(100% - 120px);
-    overflow-y: auto;
+.dmodal-body{
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
 }

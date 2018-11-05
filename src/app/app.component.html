@@ -1,15 +1,17 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
-  <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/hot']">Navbar</a></mdb-navbar-brand>
   <links>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a [routerLink]="['/']" class="nav-link waves-light" mdbWavesEffect>Home</a>
+        <a [routerLink]="['/']" routerLinkActive="active-link" class="nav-link waves-light" mdbWavesEffect>Home</a>
       </li>
       <li class="nav-item">
-        <a [routerLink]="['/popular']" class="nav-link waves-light" mdbWavesEffect>Popular Tags</a>
+        <a [routerLink]="['/popular']" routerLinkActive="active-link" class="nav-link waves-light" mdbWavesEffect>
+          Popular Tags
+        </a>
       </li>
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
           Explore<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
           <a [routerLink]="['/hot']" class="dropdown-item waves-light" mdbWavesEffect>Hot</a>
@@ -18,17 +20,19 @@
         </div>
       </li>
     </ul>
-    <div>
-      <a class="nav-link waves-light">Login</a>
-      <a class="nav-link waves-light">Register</a>
-    </div>
-    <div>
-      <span class="fa fa-user-circle-o fa-2x"></span>
+    <div [ngSwitch]="loggedin()">
+      <div *ngSwitchCase="false">
+        <a (click)="onBtnLogin()" class="nav-link waves-light">Login</a>
+        <a (click)="onBtnRegister()" class="nav-link waves-light">Register</a>
+      </div>
+      <div *ngSwitchCase="true">
+        <span class="fa fa-user-circle-o fa-2x"></span>
+      </div>
     </div>
   </links>
 </mdb-navbar>
 <!-- Dialog Modal -->
-<app-dialog-modal class="container" #dialog>
+<app-dialog-modal class="container pre-scrollable" #dialog>
 </app-dialog-modal>
 <!-- Dialog Modal -->
 <router-outlet class="container content-body"></router-outlet>

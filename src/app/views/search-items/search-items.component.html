@@ -1,8 +1,8 @@
 <!-- content -->
 <div class="container">
   <tag-input [placeholder]="'type & press enter to add tag'" style="margin-bottom: 30px"></tag-input>
-  <div class="row list-inline">
-    <app-recipeitem [data]="item" *ngFor="let item of recipelist" class="list-group-item col-lg-4 col-md-6 mb-4"></app-recipeitem>
+  <div class="row">
+    <app-recipeitem [data]="item" *ngFor="let item of recipelist" class="container col-lg-4 col-md-6 mb-4"></app-recipeitem>
   </div>
   <div class="container loader">
     <a class="btn btn-success" (click)="loadMore()"> Load More </a>

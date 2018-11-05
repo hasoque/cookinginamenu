@@ -17,19 +17,6 @@ class TagRates {
     this.totalpost = faker.random.number(1000);
   }
 }
-class VRecipe {
-  id: number;
-  name: string;
-  description: string;
-  user: UserModel;
-
-  constructor() {
-    this.id = faker.random.number(10);
-    this.name = faker.name.title();
-    this.description = faker.lorem.sentences(5);
-    this.user = new UserModel();
-  }
-}
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
@@ -39,7 +26,7 @@ export class UserViewComponent implements OnInit {
 
   info: UserModel;
   topreviews: Array<ReviewModel>;
-  toprecipes: Array<VRecipe>;
+  toprecipes: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
   datejoined: Date;
 
@@ -60,11 +47,11 @@ export class UserViewComponent implements OnInit {
       new ReviewModel(new RecipeModel())
     ];
     this.toprecipes = [
-      new VRecipe(),
-      new VRecipe(),
-      new VRecipe(),
-      new VRecipe(),
-      new VRecipe(),
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel(),
     ];
     this.contributionstag = [
       new TagRates(),
