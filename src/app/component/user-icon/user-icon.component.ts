@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserModel } from 'src/app/model/user-model';
 
 @Component({
   selector: 'app-user-icon',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-icon.component.scss']
 })
 export class UserIconComponent implements OnInit {
+
+  @Input() data: UserModel;
+  show: boolean;
 
   constructor() { }
 

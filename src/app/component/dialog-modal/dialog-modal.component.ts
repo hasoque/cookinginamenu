@@ -11,9 +11,9 @@ export interface IHash {
 })
 export class DialogModalComponent implements OnInit {
 
-  private visible = false;
-  private visibleAnimate = false;
-  data: IHash = {'title' : 'Loading',
+  public visible = false;
+  public visibleAnimate = false;
+  public data: IHash = {'title' : 'Loading',
                 'type' : 'login',
                 'body': '<app-login></app-login>',
                 'modal-size': ''
