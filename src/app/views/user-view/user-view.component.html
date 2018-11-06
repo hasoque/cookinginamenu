@@ -6,7 +6,7 @@
         <div class="info">
           <h5 class="">{{info.name}}</h5>
           <h6>
-            <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.totalrating}})</span>
+            <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.reviewkarma}})</span>
           </h6>
           <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
         </div>
@@ -34,13 +34,13 @@
       <li class="list-group-item" *ngFor="let item of topreviews">
         <div>
           <small>
-            <a>{{item.reviewed.uploader.name}}'s </a>
-            <a>{{item.reviewed.name}}</a>
+            <a>{{item.uploader.name}}'s </a>
+            <a>{{item.recipe.name}}</a>
           </small>
           <br>
-          <small>{{item.reviewtext}}</small>
+          <small>{{item.review.reviewtext}}</small>
           <br>
-          <small>{{item.likes}} Likes</small>
+          <small>{{item.review.likes}} Likes</small>
         </div>
       </li>
     </div>
@@ -54,11 +54,11 @@
           <div class="col-lg-3">
             <img src="http://placehold.it/240x150" alt=""></div>
           <div class="col-lg-9">
-            <a [routerLink]="['/user', item.id]">
-              <h5>{{item.name}}</h5>
+            <a [routerLink]="['/recipe', item.recipe.id]">
+              <h5>{{item.recipe.name}}</h5>
             </a>
-            <small>{{item.description}}</small>
-            <h6>By: <a [routerLink]="['/user', item.uploader.id]" routerLinkActive="router-link-active">{{item.uploader.name}}</a></h6>
+            <small>{{item.recipe.description}}</small>
+            <h6>By: <app-user-icon [data]="item.uploader"></app-user-icon> </h6>
           </div>
         </div>
       </div>

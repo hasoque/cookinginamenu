@@ -26,8 +26,6 @@ export class RecipeModel {
   taglist: Array<string>;
   ingredients: Array<Ingredient>;
   procedures: Array<Procedure>;
-  reviewlist: Array<ReviewModel>;
-  uploader: UserModel;
   date: Date;
   description: string;
 
@@ -38,8 +36,7 @@ export class RecipeModel {
     this.name = faker.lorem.words(3);
     this.trating = faker.random.number(234);
     this.avgrating = (faker.random.number(30) + 1) / 10 + 2;
-    this.description = faker.lorem.sentence(12, faker.random.number(5) + 15);
-    this.uploader = new UserModel();
+    this.description = faker.lorem.paragraph(15 + faker.random.number(5));
     this.date = faker.date.recent(100);
     this.ingredients = [new Ingredient(),
       new Ingredient(),
@@ -58,12 +55,5 @@ export class RecipeModel {
       new Procedure(),
       new Procedure(),
       new Procedure()];
-    this.reviewlist = [new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel(),
-      new ReviewModel()
-    ];
   }
 }

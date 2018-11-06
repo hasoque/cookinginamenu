@@ -1,10 +1,12 @@
 <div class="container">
   <div>
     <img src="http://placehold.it/64x64" alt="">
-    <a [routerLink]="['/user', data.reviewer.id]" routerLinkActive="router-link-active">{{data.reviewer.name}}</a>
+    <app-user-icon [data]="reviewer"></app-user-icon>
     <app-rate-icon [score]="data.rate"></app-rate-icon>
   </div>
-  <small>{{data.reviewtext}}</small>
+  <p>
+    <small>{{data.reviewtext}}</small>
+  </p>
   <small>{{data.date.toDateString()}}</small>
   <div class="float-right"><span class="fa fa-thumbs-up"></span><small>{{data.likes}}</small><span class="fa fa-thumbs-down"></span></div>
 </div>

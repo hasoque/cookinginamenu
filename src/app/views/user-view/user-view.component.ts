@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as faker from 'faker';
-import { ReviewItemComponent } from 'src/app/component/review-item/review-item.component';
 import { UserModel } from 'src/app/model/user-model';
 import { ReviewModel } from 'src/app/model/review-model';
 import { RecipeModel } from 'src/app/model/recipe-model';
@@ -17,16 +16,37 @@ class TagRates {
     this.totalpost = faker.random.number(1000);
   }
 }
+
+class ReviewedRecipe {
+  recipe: RecipeModel;
+  uploader: UserModel;
+  review: ReviewModel;
+
+  constructor() {
+    this.recipe = new RecipeModel();
+    this.uploader = new UserModel();
+    this.review = new ReviewModel();
+  }
+}
+
+class Recipe {
+  recipe: RecipeModel;
+  uploader: UserModel;
+  constructor() {
+    this.recipe = new RecipeModel();
+    this.uploader = new UserModel();
+  }
+}
+
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
 export class UserViewComponent implements OnInit {
-
   info: UserModel;
-  topreviews: Array<ReviewModel>;
-  toprecipes: Array<RecipeModel>;
+  topreviews: Array<ReviewedRecipe>;
+  toprecipes: Array<Recipe>;
   contributionstag: Array<TagRates>;
   datejoined: Date;
 
@@ -37,21 +57,23 @@ export class UserViewComponent implements OnInit {
     this.info = new UserModel();
     this.datejoined = faker.date.recent(23);
     this.topreviews = [
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel()),
-      new ReviewModel(new RecipeModel())
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe(),
+      new ReviewedRecipe()
     ];
     this.toprecipes = [
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel(),
+      new Recipe(),
+      new Recipe(),
+      new Recipe(),
+      new Recipe(),
+      new Recipe(),
+      new Recipe(),
+      new Recipe()
     ];
     this.contributionstag = [
       new TagRates(),

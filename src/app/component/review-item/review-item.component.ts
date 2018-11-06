@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { ReviewModel } from 'src/app/model/review-model';
-import { RecipeModel } from 'src/app/model/recipe-model';
+import { UserModel } from 'src/app/model/user-model';
 
 
 @Component({
@@ -11,7 +11,9 @@ import { RecipeModel } from 'src/app/model/recipe-model';
 export class ReviewItemComponent implements OnInit, AfterViewInit {
 
   @Input() data: ReviewModel;
+  reviewer: UserModel;
   constructor() {
+    this.reviewer = new UserModel();
   }
   getElementReference() {
 

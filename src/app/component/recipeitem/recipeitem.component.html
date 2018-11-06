@@ -4,12 +4,10 @@
     <h5 class="card-title">
       <a [routerLink]="['/recipe', data.id]">{{data.name.toUpperCase()}}</a>
     </h5>
-    <small class="card-text">{{data.description}}</small>
+    <small class="card-text">{{data.description.slice(0,100)}}....</small>
   </div>
   <div class="card-footer">
-    <small>
-      <app-user-icon [data]="data.uploader"></app-user-icon>
-    </small>
+    <app-user-icon [data]="uploader"></app-user-icon>
     <h6 class="card-subtitle">Rating: {{data.trating}}</h6>
     <span (click)="onRateClick()" class="rate-icon">
       <app-rate-icon [score]="data.avgrating"></app-rate-icon>

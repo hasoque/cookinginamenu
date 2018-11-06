@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecipeModel } from 'src/app/model/recipe-model';
+import { UserModel } from 'src/app/model/user-model';
+import { ReviewModel } from 'src/app/model/review-model';
 
 @Component({
   selector: 'app-recipe',
@@ -9,10 +11,13 @@ import { RecipeModel } from 'src/app/model/recipe-model';
 export class RecipeComponent implements OnInit {
 
   data: RecipeModel;
+  uploader: UserModel;
   similar: Array<RecipeModel>;
   recommended: Array<RecipeModel>;
+  reviewlist: Array<ReviewModel>;
   constructor() {
    this.data = new RecipeModel();
+   this.uploader = new UserModel();
    this.similar = [
      new RecipeModel(),
      new RecipeModel(),
@@ -26,6 +31,16 @@ export class RecipeComponent implements OnInit {
      new RecipeModel(),
      new RecipeModel(),
      new RecipeModel()
+   ];
+   this.reviewlist = [
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
+     new ReviewModel(),
    ];
   }
   ngOnInit() {

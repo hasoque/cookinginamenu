@@ -5,7 +5,7 @@
         <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
         <div class="card-body">
           <h3 class="card-title">{{data.name.toUpperCase()}}</h3>
-          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', data.uploader.id]">{{data.uploader.name}}</a></h6>
+          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', uploader.id]">{{uploader.name}}</a></h6>
           <p class="card-text">{{data.description}}</p>
           <app-rate-icon [score]="data.avgrating"></app-rate-icon>
           <hr>
@@ -91,7 +91,7 @@
           <h4>Reviews</h4>
         </div>
         <div class="card-body">
-          <app-review-item [data]="item" *ngFor="let item of data.reviewlist"></app-review-item>
+          <app-review-item [data]="item" *ngFor="let item of reviewlist"></app-review-item>
         </div>
         <div class="card-footer">
           <a class="btn btn-success footer-btn">Rate & Review</a>

@@ -1,10 +1,10 @@
-<div (mouseenter)="show = true" (mouseleave)="show = false" class="icon-body">
+<span (mouseenter)="show = true" (mouseleave)="show = false" class="icon-body">
   <a [routerLink]="['/user', data.id]">
     {{data.name}}
   </a>
   <div class="user-tooltip" *ngIf="show">
     <a [routerLink]="['/user', data.id]">
-      <img class="image-center" src="http://placehold.it/48x48" alt="">
+      <img class="image-center" src="http://placehold.it/64x64" alt="">
       <h6>{{data.name}}</h6>
     </a>
     <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{data.followerCount}}</div>
@@ -13,4 +13,4 @@
     </div>
     <div class="text-item" [mdbTooltip]="'Review Likes'"><span class="fa fa-arrow-circle-up"></span>{{data.reviewkarma}}</div>
   </div>
-</div>
+</span>
