@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RecipeModel } from 'src/app/model/recipe-model';
 import { UserModel } from 'src/app/model/user-model';
 import { ReviewModel } from 'src/app/model/review-model';
+import { DialogService } from 'src/app/service/dialog.service';
 
 @Component({
   selector: 'app-recipe',
@@ -15,7 +16,7 @@ export class RecipeComponent implements OnInit {
   similar: Array<RecipeModel>;
   recommended: Array<RecipeModel>;
   reviewlist: Array<ReviewModel>;
-  constructor() {
+  constructor(private dialog: DialogService) {
    this.data = new RecipeModel();
    this.uploader = new UserModel();
    this.similar = [
@@ -45,5 +46,14 @@ export class RecipeComponent implements OnInit {
   }
   ngOnInit() {
 
+  }
+
+  editRecipe() {
+    this.dialog.dialogModal.display(true);
+    this.dialog.dialogModal.data['title'] = 'Edit Recipe ' + this.data.id;
+    this.dialog.dialogModal.data['type'] = 'edit';
+    this.dialog.dialogModal.data['editview'] = 'edit-recipe';
+    this.dialog.dialogModal.data['editparam'] = {recipe: this.data};
+    this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
   }
 }

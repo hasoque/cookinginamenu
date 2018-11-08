@@ -3,9 +3,9 @@ import { ReviewModel } from './review-model';
 import * as faker from 'faker';
 
 class Procedure {
-  proc: string;
+  text: string;
   constructor() {
-    this.proc = faker.lorem.sentences(10);
+    this.text = faker.lorem.sentences(10);
   }
 }
 

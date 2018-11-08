@@ -13,9 +13,15 @@ export class DialogModalComponent implements OnInit {
 
   public visible = false;
   public visibleAnimate = false;
+  /**
+   *
+   * "title" = display to title default is Loading,
+   * "type" = display to body can be [edit, login, register, alert, confirmation].
+   * "editview" = select component that implements EditableComponent only, register it inside edit-modal.ts
+   * "modal-size" = modal-lg or null.
+   */
   public data: IHash = {'title' : 'Loading',
                 'type' : 'login',
-                'body': '<app-login></app-login>',
                 'modal-size': ''
                 };
 

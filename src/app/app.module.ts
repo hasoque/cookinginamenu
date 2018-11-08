@@ -20,6 +20,10 @@ import { DialogModalComponent } from './component/dialog-modal/dialog-modal.comp
 import { AuthViewComponent } from './views/auth-view/auth-view.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { EditRecipeComponent } from './component/edit-recipe/edit-recipe.component';
+import { EditReviewComponent } from './component/edit-review/edit-review.component';
+import { EditModalComponent, HostDirective } from './component/edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,12 @@ import { RegisterComponent } from './component/register/register.component';
     DialogModalComponent,
     AuthViewComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditUserComponent,
+    EditRecipeComponent,
+    EditReviewComponent,
+    EditModalComponent,
+    HostDirective
   ],
   imports: [
     BrowserModule,
@@ -85,6 +94,7 @@ import { RegisterComponent } from './component/register/register.component';
     ])
   ],
   providers: [DialogModalComponent],
+  entryComponents: [ EditRecipeComponent, EditReviewComponent, EditUserComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

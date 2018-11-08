@@ -16,6 +16,7 @@
           <div *ngSwitchCase="'confirmation' || 'alert'" class="message-content">
             {{'confirmation and alert'}}
           </div>
+          <app-edit-modal *ngSwitchCase="'edit'" [params]="data['editparam']" [displaycomponent]="data['editview']"></app-edit-modal>
         </div>
       </div>
       <div class="modal-footer">

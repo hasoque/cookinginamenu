@@ -29,15 +29,6 @@ class ReviewedRecipe {
   }
 }
 
-class Recipe {
-  recipe: RecipeModel;
-  uploader: UserModel;
-  constructor() {
-    this.recipe = new RecipeModel();
-    this.uploader = new UserModel();
-  }
-}
-
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
@@ -46,7 +37,7 @@ class Recipe {
 export class UserViewComponent implements OnInit {
   info: UserModel;
   topreviews: Array<ReviewedRecipe>;
-  toprecipes: Array<Recipe>;
+  toprecipes: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
   datejoined: Date;
 
@@ -67,13 +58,11 @@ export class UserViewComponent implements OnInit {
       new ReviewedRecipe()
     ];
     this.toprecipes = [
-      new Recipe(),
-      new Recipe(),
-      new Recipe(),
-      new Recipe(),
-      new Recipe(),
-      new Recipe(),
-      new Recipe()
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel(),
+      new RecipeModel()
     ];
     this.contributionstag = [
       new TagRates(),

@@ -16,6 +16,12 @@ export class RecipeitemComponent implements OnInit {
   reviewList: Array<ReviewModel>;
   constructor(private dialog: DialogService) {
     this.uploader = new UserModel();
+    this.reviewList = [
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel(),
+      new ReviewModel()];
   }
 
   ngOnInit() {

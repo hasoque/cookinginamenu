@@ -8,6 +8,7 @@
           <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', uploader.id]">{{uploader.name}}</a></h6>
           <p class="card-text">{{data.description}}</p>
           <app-rate-icon [score]="data.avgrating"></app-rate-icon>
+          <button (click)="editRecipe()">Edit</button>
           <hr>
           <div class="container">
             <h4>Ingredients</h4>
@@ -25,7 +26,7 @@
               <ul class="list-group row">
                 <li class="list-group-item" *ngFor="let step of data.procedures; let i = index">
                   <h6>Step {{(i+1)}}</h6>
-                  <p>{{step.proc}}</p>
+                  <p>{{step.text}}</p>
                 </li>
               </ul>
             </div>

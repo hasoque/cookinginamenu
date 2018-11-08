@@ -5,7 +5,7 @@
   <div class="user-tooltip" *ngIf="show">
     <a [routerLink]="['/user', data.id]">
       <img class="image-center" src="http://placehold.it/64x64" alt="">
-      <h6>{{data.name}}</h6>
+      <h6>{{data.fname +' '+ data.lname}}</h6>
     </a>
     <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{data.followerCount}}</div>
     <div class="text-item" [mdbTooltip]="'Posted Recipes Average Rating'">

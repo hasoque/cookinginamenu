@@ -1,0 +1,17 @@
+<div class="container">
+  <form>
+    <input [(ngModel)]="data.recipe.name" name="username">
+    <input [(ngModel)]="data.recipe.description" name="description">
+    <tag-input [(ngModel)]="data.recipe.taglist" name="tags"></tag-input>
+    <div *ngFor="let ingredient of data.recipe.ingredients; let i = index">
+        <input [(ngModel)]="ingredient.name" name="ingredient{{i}}">
+        <input [(ngModel)]="ingredient.quantity" name="quantity{{i}}">pieces
+    </div>
+    <button (click)="addIngredient()">Add Ingredient</button>
+    <button>Add procedure</button>
+    <div *ngFor="let procedure of data.recipe.procedures; let i = index">
+      <textarea [(ngModel)]="procedure.text" name="procedure{{i}}"></textarea>
+    </div>
+    <button (click)="addProcedure()">Add Procedure</button>
+  </form>
+</div>
