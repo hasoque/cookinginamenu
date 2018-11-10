@@ -1,27 +1,23 @@
 <div class="container">
-  <form>
-    <div class="md-form">
-      <input class="form-control" [(ngModel)]="data.user.name" name="username" placeholder="username" />
-    </div>
+  <form class="row">
+    <img class="col-12" alt="image selected">
+    <label class="btn btn-default col-12">
+      Choose File <input type="file" hidden accept="image/x-png,image/gif,image/jpeg">
+    </label>
+    <label class="col-lg-3">Username</label>
+    <input class="form-control col-lg-9" [(ngModel)]="data.user.name" name="username" />
 
-    <div class="md-form">
-      <input class="form-control" [(ngModel)]="data.user.fname" name="first name" placeholder="first name" />
-    </div>
+    <label class="col-lg-12">Fullname</label>
+    <input class="form-control col-lg-6" [(ngModel)]="data.user.fname" name="first name" placeholder="firstname" />
+    <input class="form-control col-lg-6" style="margin-bottom: 20px" [(ngModel)]="data.user.lname" name="last name" />
 
-    <div class="md-form">
-      <input class="form-control" [(ngModel)]="data.user.lname" name="last name" placeholder="last name" />
-    </div>
+    <label class="col-lg-3">Biography</label>
+    <textarea rows="10" class="form-control form-control-sm col-lg-9" [(ngModel)]="data.user.bio" name="biography"></textarea>
 
-    <div class="md-form">
-      <textarea [(ngModel)]="data.user.bio" name="biography" placeholder="biography"></textarea>
-    </div>
+    <label>Password</label>
+    <input class="form-control" name="password" type="password" />
 
-    <div class="md-form">
-      <input class="form-control" [(ngModel)]="data.user.password" name="password" placeholder="password" />
-    </div>
-
-    <div class="md-form">
-      <input class="form-control" [(ngModel)]="data.user.password" name="confirm password" placeholder="confirm password" />
-    </div>
+    <label>Confirm Password</label>
+    <input class="form-control" name="confirm password" type="password" />
   </form>
 </div>

@@ -3,6 +3,7 @@ import * as faker from 'faker';
 import { UserModel } from 'src/app/model/user-model';
 import { ReviewModel } from 'src/app/model/review-model';
 import { RecipeModel } from 'src/app/model/recipe-model';
+import { DialogService } from 'src/app/service/dialog.service';
 
 class TagRates {
   tagname: string;
@@ -39,14 +40,12 @@ export class UserViewComponent implements OnInit {
   topreviews: Array<ReviewedRecipe>;
   toprecipes: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
-  datejoined: Date;
 
-  constructor() {
+  constructor(private dialog: DialogService) {
   }
 
   ngOnInit() {
     this.info = new UserModel();
-    this.datejoined = faker.date.recent(23);
     this.topreviews = [
       new ReviewedRecipe(),
       new ReviewedRecipe(),
@@ -76,5 +75,12 @@ export class UserViewComponent implements OnInit {
       new TagRates(),
     ];
   }
-
+  onEditing() {
+    this.dialog.dialogModal.display(true);
+    this.dialog.dialogModal.data['title'] = 'Edit Recipe ' + this.info.name;
+    this.dialog.dialogModal.data['type'] = 'edit';
+    this.dialog.dialogModal.data['editview'] = 'edit-user';
+    this.dialog.dialogModal.data['editparam'] = {user: this.info};
+    this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
+  }
 }

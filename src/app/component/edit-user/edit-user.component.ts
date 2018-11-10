@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EditableComponent } from 'src/app/model/editable-component';
+import { DialogService } from 'src/app/service/dialog.service';
+import { ModalButton } from '../dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-edit-user',
@@ -9,9 +11,16 @@ import { EditableComponent } from 'src/app/model/editable-component';
 export class EditUserComponent implements OnInit, EditableComponent {
 
   @Input() data: any;
-  constructor() { }
+  constructor(private dialog: DialogService) { }
 
   ngOnInit() {
+    this.dialog.dialogModal.buttons.length = 0;
+    this.dialog.dialogModal.buttons.push(new ModalButton('Save', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'success'));
+    this.dialog.dialogModal.buttons.push(new ModalButton('Cancel', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'success'));
   }
 
 }

@@ -10,6 +10,7 @@ export class UserModel {
   avgrating: number;
   password: string;
   followerCount: number;
+  dateJoined: Date;
 
   constructor() {
     this.id = faker.random.number(10);
@@ -20,5 +21,6 @@ export class UserModel {
     this.fname = faker.name.firstName();
     this.lname = faker.name.lastName();
     this.name = this.fname.slice(faker.random.number(this.fname.length / 2), this.fname.length) + faker.lorem.word();
+    this.dateJoined = faker.date.recent(100);
   }
 }

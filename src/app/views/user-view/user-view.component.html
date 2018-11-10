@@ -1,5 +1,6 @@
 <div class="container">
   <div class="container">
+    <button (click)="onEditing()">Edit</button>
     <div class="row">
       <div class="col-lg-4 text-center">
         <img src="http://placehold.it/200x150" alt="">
@@ -9,7 +10,7 @@
           <h6>
             <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.reviewkarma}})</span>
           </h6>
-          <h6>Joined <span style="color:gray">{{datejoined.toDateString()}}</span></h6>
+          <h6>Joined <span style="color:gray">{{info.dateJoined.toDateString()}}</span></h6>
         </div>
         <div class="list-unstyled row text-left">
           <small class="col-lg-12">Contribution{{(contributionstag.length > 1) ? '':''}}</small>
