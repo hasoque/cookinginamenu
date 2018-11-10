@@ -1,17 +1,28 @@
 <div class="container">
   <form>
-    <input [(ngModel)]="data.recipe.name" name="username">
-    <input [(ngModel)]="data.recipe.description" name="description">
-    <tag-input [(ngModel)]="data.recipe.taglist" name="tags"></tag-input>
-    <div *ngFor="let ingredient of data.recipe.ingredients; let i = index">
-        <input [(ngModel)]="ingredient.name" name="ingredient{{i}}">
-        <input [(ngModel)]="ingredient.quantity" name="quantity{{i}}">pieces
+    <label for="title">Recipe Name</label>
+    <input id="title" class="form-control form-control-sm" [(ngModel)]="data.recipe.name" name="username" placeholder="Recipe Name">
+    <label for="description">Description</label>
+    <textarea rows="10" class="form-control form-control-sm" [(ngModel)]="data.recipe.description" name="description" placeholder="Description"></textarea>
+    <tag-input [(ngModel)]="data.recipe.taglist" [modelAsStrings]="true" name="tags"></tag-input>
+    <hr>
+    <div class="container" style="margin-bottom: 10px">
+      <h5>Ingredients</h5>
+      <button (click)="addIngredient()">Add Ingredient</button>
+      <div class="row" style="margin-bottom: 5px" *ngFor="let ingredient of data.recipe.ingredients; let i = index">
+        <input class="form-control form-control-sm col-7" [(ngModel)]="ingredient.name" name="ingredient{{i}}">
+        <input class="form-control form-control-sm col-4" [(ngModel)]="ingredient.quantity" name="quantity{{i}}">
+        <span class="fa fa-close col-1" [mdbTooltip]="'delete item'" (click)="deleteIngredient(i)"></span>
+      </div>
     </div>
-    <button (click)="addIngredient()">Add Ingredient</button>
-    <button>Add procedure</button>
-    <div *ngFor="let procedure of data.recipe.procedures; let i = index">
-      <textarea [(ngModel)]="procedure.text" name="procedure{{i}}"></textarea>
+    <div class="container">
+      <h5>Procedure</h5>
+      <button (click)="addProcedure()">Add Procedure</button>
+      <div *ngFor="let procedure of data.recipe.procedures; let i = index">
+        <h6><b>Step {{i}}</b></h6>
+        <button class="fa fa-close" [mdbTooltip]="'delete item'" (click)="deleteProcedure(i)"></button>
+        <textarea rows="10" class="form-control form-control-sm" [(ngModel)]="procedure.text" name="procedure{{i}}"></textarea>
+      </div>
     </div>
-    <button (click)="addProcedure()">Add Procedure</button>
   </form>
 </div>

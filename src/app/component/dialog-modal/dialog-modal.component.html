@@ -20,16 +20,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <div *ngIf="data['type'] === 'confirmation'">
-          <span class="btn btn-default">Cancel</span>
-          <span class="btn btn-default">Confirm</span>
-        </div>
-        <div *ngIf="data['type'] === 'alert'">
-          <span class="btn btn-default">OK</span>
-        </div>
-        <div *ngIf="data['type'] === 'login' || 'register'">
-          <span class="btn btn-default">{{data['type'].toUpperCase()}}</span>
-        </div>
+        <button class="btn btn-{{item.style}}" *ngFor="let item of buttons" (click)="item.response.call()">{{item.text}}</button>
       </div>
     </div>
   </div>

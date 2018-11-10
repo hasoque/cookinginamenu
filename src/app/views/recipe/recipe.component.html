@@ -9,6 +9,14 @@
           <p class="card-text">{{data.description}}</p>
           <app-rate-icon [score]="data.avgrating"></app-rate-icon>
           <button (click)="editRecipe()">Edit</button>
+          <div class="container border border-white">
+            <h6>Tags</h6>
+            <ul class="list-unstyled row">
+              <li class="list-group-item" style="border:none; padding: 0; padding-right: 10px" *ngFor="let item of data.taglist">
+                <span class="badge badge-info">{{item}}</span>
+              </li>
+            </ul>
+          </div>
           <hr>
           <div class="container">
             <h4>Ingredients</h4>
@@ -68,7 +76,7 @@
           <div class="list-group" *ngFor="let item of recommended">
             <div class="list-group-item">
               <div class="row">
-                  <img class="col-6" src="http://placehold.it/100x100" alt="">
+                <img class="col-6" src="http://placehold.it/100x100" alt="">
                 <div class="col-6">
                   <a [routerLink]="['/recipe/', item.id]">
                     <b><small>{{item.name.toUpperCase()}}</small></b>

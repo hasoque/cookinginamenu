@@ -1,10 +1,27 @@
 <div class="container">
   <form>
-    <input [(ngModel)]="data.username" name="username" placeholder="username">
-    <input [(ngModel)]="data.userfname" name="first name" placeholder="first name">
-    <input [(ngModel)]="data.userlname" name="last name" placeholder="last name">
-    <textarea [(ngModel)]="data.userbio" name="biography" placeholder="biography"></textarea>
-    <input [(ngModel)]="data.userpassword" name="password" placeholder="password">
-    <input [(ngModel)]="data.userpassword" name="confirm password" placeholder="confirm password">
+    <div class="md-form">
+      <input class="form-control" [(ngModel)]="data.user.name" name="username" placeholder="username" />
+    </div>
+
+    <div class="md-form">
+      <input class="form-control" [(ngModel)]="data.user.fname" name="first name" placeholder="first name" />
+    </div>
+
+    <div class="md-form">
+      <input class="form-control" [(ngModel)]="data.user.lname" name="last name" placeholder="last name" />
+    </div>
+
+    <div class="md-form">
+      <textarea [(ngModel)]="data.user.bio" name="biography" placeholder="biography"></textarea>
+    </div>
+
+    <div class="md-form">
+      <input class="form-control" [(ngModel)]="data.user.password" name="password" placeholder="password" />
+    </div>
+
+    <div class="md-form">
+      <input class="form-control" [(ngModel)]="data.user.password" name="confirm password" placeholder="confirm password" />
+    </div>
   </form>
 </div>

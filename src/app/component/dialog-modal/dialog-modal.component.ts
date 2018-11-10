@@ -4,6 +4,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export interface IHash {
   [data: string]: any;
 }
+/**
+ * @alias text
+ * @field style
+ * @method response asdas
+ */
+export class ModalButton {
+  constructor(public text: string, public response: Function, public style?: string) {
+    this.text = text;
+    this.style = ((style === '' || style === undefined)  ? 'default' : style);
+    this.response = response;
+  }
+}
+
 @Component({
   selector: 'app-dialog-modal',
   templateUrl: './dialog-modal.component.html',
@@ -13,6 +26,7 @@ export class DialogModalComponent implements OnInit {
 
   public visible = false;
   public visibleAnimate = false;
+  public buttons: Array<ModalButton>;
   /**
    *
    * "title" = display to title default is Loading,
@@ -37,6 +51,7 @@ export class DialogModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.buttons = new Array<ModalButton>();
 
   }
 }

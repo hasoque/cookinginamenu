@@ -2,14 +2,14 @@ import { UserModel } from './user-model';
 import { ReviewModel } from './review-model';
 import * as faker from 'faker';
 
-class Procedure {
+export class Procedure {
   text: string;
   constructor() {
     this.text = faker.lorem.sentences(10);
   }
 }
 
-class Ingredient {
+export class Ingredient {
   name: string;
   quantity: string;
   constructor() {
@@ -38,6 +38,7 @@ export class RecipeModel {
     this.avgrating = (faker.random.number(30) + 1) / 10 + 2;
     this.description = faker.lorem.paragraph(15 + faker.random.number(5));
     this.date = faker.date.recent(100);
+    this.taglist = faker.random.words(5 + faker.random.number(5)).split(' ');
     this.ingredients = [new Ingredient(),
       new Ingredient(),
       new Ingredient(),
