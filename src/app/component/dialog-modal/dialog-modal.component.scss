@@ -1,10 +1,7 @@
 .modal {
   background: rgba(0,0,0,0.6);
-}
-.dmodal-content{
-  height: 96%;
-}
-.dmodal-body{
-  max-height: calc(100% - 120px);
   overflow-y: auto;
+}
+.cursor-loading {
+  cursor: wait;
 }

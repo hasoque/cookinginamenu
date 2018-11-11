@@ -1,10 +1,15 @@
-<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'show': visibleAnimate}"
-  [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
-  <div class="modal-dialog modal-dialog-centered {{data['modal-size']}} {{data['modal-size'] === 'modal-lg'?'dmodal-content':''}}">
+<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{ show: visibleAnimate }"
+  [ngStyle]="{
+    display: visible ? 'block' : 'none',
+    opacity: visibleAnimate ? 1 : 0
+  }">
+  <div class="modal-dialog modal-dialog-centered {{data['modal-size']}} {{data['modal-size'] === 'modal-lg'?'dmodal-content':''}} {{loading?'cursor-loading':''}}">
     <div class="modal-content {{data['modal-size'] === 'modal-lg'?'dmodal-content':''}}">
       <div class="modal-header">
-        <h4><b>{{data['title']}}</b></h4>
-        <span (click)="display(false)" class="btn btn-light fa fa-close" style="margin: 0; padding: 0;"></span>
+        <h4>
+          <b>{{ data["title"] }}</b>
+        </h4>
+        <span (click)="display(false)" class="btn btn-primary btn-sm fa fa-close" style="margin: 0; padding: 3px;"></span>
       </div>
       <div class="modal-body {{data['modal-size'] === 'modal-lg'?'dmodal-body':''}}">
         <div [ngSwitch]="data['type']">
@@ -14,13 +19,15 @@
             <app-review-item [data]="item" *ngFor="let item of data['reviewlist']"></app-review-item>
           </div>
           <div *ngSwitchCase="'confirmation' || 'alert'" class="message-content">
-            {{'confirmation and alert'}}
+            {{ "confirmation and alert" }}
           </div>
           <app-edit-modal *ngSwitchCase="'edit'" [params]="data['editparam']" [displaycomponent]="data['editview']"></app-edit-modal>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-{{item.style}}" *ngFor="let item of buttons" (click)="item.response.call()">{{item.text}}</button>
+        <button class="btn btn-{{item.style}}" *ngFor="let item of buttons" (click)="item.response.call()">
+          {{ item.text }}
+        </button>
       </div>
     </div>
   </div>

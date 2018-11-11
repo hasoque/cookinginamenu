@@ -27,6 +27,7 @@ export class DialogModalComponent implements OnInit {
   public visible = false;
   public visibleAnimate = false;
   public buttons: Array<ModalButton>;
+  public loading: boolean;
   /**
    *
    * "title" = display to title default is Loading,
@@ -42,6 +43,12 @@ export class DialogModalComponent implements OnInit {
   public display(visible: boolean) {
     this.visible = visible;
     setTimeout(() => this.visibleAnimate = visible, 150);
+  }
+
+  buttonClick(called: Function) {
+    this.loading = true;
+    called();
+    this.loading = false;
   }
 
   public onContainerClicked(event: MouseEvent): void {
