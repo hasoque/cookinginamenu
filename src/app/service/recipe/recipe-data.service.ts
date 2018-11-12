@@ -17,7 +17,9 @@ export class RecipeDataService {
    * @param chunk item from chunk * 5 to chunk * 5 + 5
    */
   searchForItems(searchq: string, searcht: Array<string>, searchi: Array<string>, chunk: number): Array<RecipeModel> {
-    return [new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel()];
+    return [new RecipeModel()
+      , new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel()];
+
   }
 
   /**

@@ -26,13 +26,18 @@ export class RecipeModel {
   taglist: Array<string>;
   ingredients: Array<Ingredient>;
   procedures: Array<Procedure>;
+  uploaderid: number;
   date: Date;
   description: string;
 
   constructor(id?: number) {
-    if (id !== null) {
+    if (id !== undefined) {
+      this.id = id;
+    } else {
       this.id = faker.random.number(100);
     }
+    faker.seed(this.id);
+    this.uploaderid = faker.random.number(100);
     this.name = faker.lorem.words(3);
     this.trating = faker.random.number(234);
     this.avgrating = (faker.random.number(30) + 1) / 10 + 2;
@@ -57,4 +62,5 @@ export class RecipeModel {
       new Procedure(),
       new Procedure()];
   }
+
 }

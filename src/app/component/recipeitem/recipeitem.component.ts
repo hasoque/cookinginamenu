@@ -15,6 +15,9 @@ export class RecipeitemComponent implements OnInit {
   uploader: UserModel;
   reviewList: Array<ReviewModel>;
   constructor(private dialog: DialogService) {
+  }
+
+  ngOnInit() {
     this.uploader = new UserModel();
     this.reviewList = [
       new ReviewModel(),
@@ -22,10 +25,6 @@ export class RecipeitemComponent implements OnInit {
       new ReviewModel(),
       new ReviewModel(),
       new ReviewModel()];
-  }
-
-  ngOnInit() {
-
   }
 
   onRateClick() {

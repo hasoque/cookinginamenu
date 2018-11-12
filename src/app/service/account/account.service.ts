@@ -16,6 +16,10 @@ export class AccountService {
     return this.user !== null;
   }
 
+  getUserLoggedIn() {
+    return this.user;
+  }
+
   /**
    * verify the user to login
    * @param username username input string[_A-Za-z0-9]

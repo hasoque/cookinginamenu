@@ -24,6 +24,11 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
 import { EditRecipeComponent } from './component/edit-recipe/edit-recipe.component';
 import { EditReviewComponent } from './component/edit-review/edit-review.component';
 import { EditModalComponent, HostDirective } from './component/edit-modal/edit-modal.component';
+import { DialogService } from './service/dialog.service';
+import { ReviewsDataService } from './service/review/reviews-data.service';
+import { AccountService } from './service/account/account.service';
+import { RecipeDataService } from './service/recipe/recipe-data.service';
+import { UserService } from './service/user/user.service';
 
 @NgModule({
   declarations: [
@@ -93,7 +98,7 @@ import { EditModalComponent, HostDirective } from './component/edit-modal/edit-m
        }
     ])
   ],
-  providers: [DialogModalComponent],
+  providers: [UserService, DialogService, RecipeDataService, ReviewsDataService, AccountService],
   entryComponents: [ EditRecipeComponent, EditReviewComponent, EditUserComponent ],
   bootstrap: [AppComponent]
 })

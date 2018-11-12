@@ -1,34 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import * as faker from 'faker';
-import { UserModel } from 'src/app/model/user-model';
-import { ReviewModel } from 'src/app/model/review-model';
+import { UserModel, ReviewedRecipe, TagRates } from 'src/app/model/user-model';
 import { RecipeModel } from 'src/app/model/recipe-model';
 import { DialogService } from 'src/app/service/dialog.service';
-
-class TagRates {
-  tagname: string;
-  avgrate: number;
-  totalrate: number;
-  totalpost: number;
-  constructor() {
-    this.tagname = faker.random.word();
-    this.avgrate = faker.random.number(5);
-    this.totalrate = faker.random.number(100);
-    this.totalpost = faker.random.number(1000);
-  }
-}
-
-class ReviewedRecipe {
-  recipe: RecipeModel;
-  uploader: UserModel;
-  review: ReviewModel;
-
-  constructor() {
-    this.recipe = new RecipeModel();
-    this.uploader = new UserModel();
-    this.review = new ReviewModel();
-  }
-}
+import { UserService } from 'src/app/service/user/user.service';
+import { RecipeDataService } from 'src/app/service/recipe/recipe-data.service';
+import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-view',
@@ -41,39 +18,18 @@ export class UserViewComponent implements OnInit {
   toprecipes: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
 
-  constructor(private dialog: DialogService) {
+  constructor(private dialog: DialogService, private uservice: UserService,
+     private recipeservice: RecipeDataService, private reviewservice: ReviewsDataService,
+      private actvroute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.info = new UserModel();
-    this.topreviews = [
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe(),
-      new ReviewedRecipe()
-    ];
-    this.toprecipes = [
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel(),
-      new RecipeModel()
-    ];
-    this.contributionstag = [
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-      new TagRates(),
-    ];
+    this.actvroute.paramMap.subscribe(params => {
+      this.info = this.uservice.getUser(parseInt(params.get('id'), 10));
+      this.topreviews = this.uservice.getReviewdRecipes(this.info.id);
+      this.toprecipes = this.recipeservice.searchForItems('', [], [], 3);
+      this.contributionstag = this.uservice.getContributionTags(this.info.id);
+    });
   }
   onEditing() {
     this.dialog.dialogModal.display(true);

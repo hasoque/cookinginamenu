@@ -36,13 +36,15 @@
       <li class="list-group-item" *ngFor="let item of topreviews">
         <div>
           <small>
-            <a>{{item.uploader.name}}'s </a>
+            <app-user-icon [data]="item.uploader"></app-user-icon>'s
             <a>{{item.recipe.name}}</a>
+            <br>
+            Your Rating: <app-rate-icon [score]="item.review.rate"></app-rate-icon>
           </small>
           <br>
           <small>{{item.review.reviewtext}}</small>
           <br>
-          <small>{{item.review.likes}} Likes</small>
+          <small><b>Review Upvotes: </b>{{item.review.likes}}</small>
         </div>
       </li>
     </div>

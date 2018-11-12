@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserModel } from 'src/app/model/user-model';
+import { UserModel, TagRates, ReviewedRecipe } from 'src/app/model/user-model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class UserService {
    * @param id id of user to get
    */
   getUser(id: number): UserModel {
-    return new UserModel();
+    return new UserModel(id);
   }
 
   /**
@@ -22,5 +22,14 @@ export class UserService {
    */
   putUser(user: UserModel): boolean {
     return false;
+  }
+
+  getContributionTags(id: number) {
+    return [new TagRates(), new TagRates(), new TagRates(), new TagRates(), new TagRates()];
+  }
+
+  getReviewdRecipes(id: number) {
+    return [new ReviewedRecipe(), new ReviewedRecipe(), new ReviewedRecipe(), new ReviewedRecipe()
+      , new ReviewedRecipe()];
   }
 }

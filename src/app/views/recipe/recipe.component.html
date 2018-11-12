@@ -5,7 +5,7 @@
         <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
         <div class="card-body">
           <h3 class="card-title">{{data.name.toUpperCase()}}</h3>
-          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', uploader.id]">{{uploader.name}}</a></h6>
+          <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', data.uploaderid]">{{uploader.name}}</a></h6>
           <p class="card-text">{{data.description}}</p>
           <app-rate-icon [score]="data.avgrating"></app-rate-icon>
           <button (click)="editRecipe()">Edit</button>
@@ -22,7 +22,7 @@
             <h4>Ingredients</h4>
             <div class="ingredient-list">
               <ul class="list-unstyled row">
-                <li class="list-group-item-text col-lg-4" *ngFor="let ingredient of data.ingredients; let i = index">
+                <li class="list-group-item-text col-lg-4 col-md-6" *ngFor="let ingredient of data.ingredients; let i = index">
                   <b>{{(i+1)}}</b>. <span>{{ingredient.quantity}} : {{ingredient.name}}</span></li>
               </ul>
             </div>
@@ -42,50 +42,44 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="container col-lg-4">
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          <h4>Reviews</h4>
+        </div>
+        <div class="card-body rec-recipe-body">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of reviewlist">
+              <app-review-item [data]="item"></app-review-item>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-success footer-btn">Rate & Review</a>
+        </div>
+      </div>
+    </div>
+    <div class="container col-lg-6">
       <div class="card card-outline-secondary my-4">
         <div class="card-header">
           <h4>Similar Recipes</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body rec-recipe-body">
           <div class="list-group" *ngFor="let item of similar">
             <div class="list-group-item">
               <div class="row">
-                <img class="col-6" src="http://placehold.it/100x100" alt="">
-                <div class="col-6">
+                <div class="col-4">
+                    <img class="rounded" src="http://placehold.it/140x128" alt="">
+                </div>
+                <div class="col-8">
                   <a [routerLink]="['/recipe/', item.id]">
                     <b><small>{{item.name.toUpperCase()}}</small></b>
                   </a>
                   <br>
                   <app-rate-icon [score]="item.avgrating"></app-rate-icon>
+                  <p><small>{{item.description | slice:0:100}}...</small></p>
                 </div>
               </div>
-              <small>{{item.description | slice:0:50}}...</small>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-success">Show All</a>
-        </div>
-      </div>
-      <div class="card card-outline-secondary my-4">
-        <div class="card-header">
-          <h4>Recommended Recipes</h4>
-        </div>
-        <div class="card-body">
-          <div class="list-group" *ngFor="let item of recommended">
-            <div class="list-group-item">
-              <div class="row">
-                <img class="col-6" src="http://placehold.it/100x100" alt="">
-                <div class="col-6">
-                  <a [routerLink]="['/recipe/', item.id]">
-                    <b><small>{{item.name.toUpperCase()}}</small></b>
-                  </a>
-                  <br>
-                  <app-rate-icon [score]="item.avgrating"></app-rate-icon>
-                </div>
-              </div>
-              <small>{{item.description | slice:0:50}}...</small>
             </div>
           </div>
         </div>
@@ -94,16 +88,32 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container col-lg-6">
       <div class="card card-outline-secondary my-4">
         <div class="card-header">
-          <h4>Reviews</h4>
+          <h4>Recommended Recipes</h4>
         </div>
-        <div class="card-body">
-          <app-review-item [data]="item" *ngFor="let item of reviewlist"></app-review-item>
+        <div class="card-body rec-recipe-body">
+          <div class="list-group" *ngFor="let item of recommended">
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-4">
+                  <img class="rounded" src="http://placehold.it/140x128" alt="">
+                </div>
+                <div class="col-8">
+                  <a [routerLink]="['/recipe', item.id]">
+                    <b><small>{{item.name.toUpperCase()}}</small></b>
+                  </a>
+                  <br>
+                  <app-rate-icon [score]="item.avgrating"></app-rate-icon>
+                  <p><small>{{item.description | slice:0:100}}...</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-success footer-btn">Rate & Review</a>
+          <a class="btn btn-success">Show All</a>
         </div>
       </div>
     </div>

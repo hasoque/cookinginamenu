@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { UserModel } from './model/user-model';
-import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
+import { DialogModalComponent, ModalButton } from './component/dialog-modal/dialog-modal.component';
 import { DialogService } from './service/dialog.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
+import { AccountService } from './service/account/account.service';
 
 
 @Component({
@@ -13,12 +14,12 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'ciamclient';
   @ViewChild('dialog') modal: DialogModalComponent;
-  user: UserModel;
-  constructor(private dservice: DialogService, private _router: Router) {
+  constructor(private dservice: DialogService, private _router: Router,
+     private account: AccountService) {
   }
 
   loggedin() {
-    return this.user === null;
+    return this.account.isLoggedIn();
   }
 
   onBtnLogin() {
@@ -35,28 +36,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.modal.display(true);
   }
 
-  setUser(user: UserModel) {
-    this.user = user;
-  }
-  removeUser() {
-    this.user = null;
-  }
-
   ngAfterViewInit() {
     this.dservice.setDialog(this.modal);
   }
 
   ngOnInit() {
-    this._router.routeReuseStrategy.shouldReuseRoute = function() {
-      return false;
-    };
 
-    this._router.events.subscribe((evt) => {
-        if (evt instanceof NavigationEnd) {
-            this._router.navigated = false;
-            window.scrollTo(0, 0);
-        }
-    });
   }
 
   public onModalClicked(event: MouseEvent): void {
