@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EditModalComponent } from '../edit-modal/edit-modal.component';
 
 export interface IHash {
   [data: string]: any;
@@ -33,8 +33,10 @@ export class DialogModalComponent implements OnInit {
    * "title" = display to title default is Loading,
    * "type" = display to body can be [edit, login, register, alert, confirmation].
    * "editview" = select component that implements EditableComponent only, register it inside edit-modal.ts
+   * "editparam" = select component that implements EditableComponent only, register it inside edit-modal.ts
    * "modal-size" = modal-lg or null.
    */
+
   public data: IHash = {'title' : 'Loading',
                 'type' : 'login',
                 'modal-size': ''

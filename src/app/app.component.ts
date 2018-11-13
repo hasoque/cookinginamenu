@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { UserModel } from './model/user-model';
 import { DialogModalComponent, ModalButton } from './component/dialog-modal/dialog-modal.component';
 import { DialogService } from './service/dialog.service';
 import { Router } from '@angular/router';
 import { AccountService } from './service/account/account.service';
+import { RecipeModel } from './model/recipe-model';
 
 
 @Component({
@@ -20,6 +20,19 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   loggedin() {
     return this.account.isLoggedIn();
+  }
+
+  getUserLoggedIn() {
+    return this.account.getUserLoggedIn();
+  }
+
+  createRecipe() {
+    this.modal.display(true);
+    this.modal.data['title'] = 'Upload Recipe';
+    this.modal.data['type'] = 'edit';
+    this.modal.data['editview'] = 'edit-recipe';
+    this.modal.data['editparam'] = {recipe: new RecipeModel()};
+    this.modal.data['modal-size'] = 'modal-lg';
   }
 
   onBtnLogin() {

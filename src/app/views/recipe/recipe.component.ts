@@ -38,14 +38,15 @@ export class RecipeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+
   }
 
   editRecipe() {
-    this.dialog.dialogModal.display(true);
     this.dialog.dialogModal.data['title'] = 'Edit Recipe ' + this.data.name;
     this.dialog.dialogModal.data['type'] = 'edit';
     this.dialog.dialogModal.data['editview'] = 'edit-recipe';
     this.dialog.dialogModal.data['editparam'] = {recipe: this.data};
     this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
+    this.dialog.dialogModal.display(true);
   }
 }

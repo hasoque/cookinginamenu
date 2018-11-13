@@ -7,13 +7,15 @@ import { UserModel } from 'src/app/model/user-model';
 export class AccountService {
 
   user: UserModel;
-  constructor() { }
+  constructor() {
+    this.user = new UserModel();
+  }
 
   /**
    * checks if a user is signed in client
    */
   isLoggedIn(): boolean {
-    return this.user !== null;
+    return this.user !== undefined;
   }
 
   getUserLoggedIn() {

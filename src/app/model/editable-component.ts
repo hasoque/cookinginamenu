@@ -1,3 +1,3 @@
 export interface EditableComponent {
-  data: any;
+  data?: any;
 }

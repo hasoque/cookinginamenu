@@ -29,7 +29,6 @@ export class RecipeModel {
   uploaderid: number;
   date: Date;
   description: string;
-
   constructor(id?: number) {
     if (id !== undefined) {
       this.id = id;
@@ -62,5 +61,4 @@ export class RecipeModel {
       new Procedure(),
       new Procedure()];
   }
-
 }

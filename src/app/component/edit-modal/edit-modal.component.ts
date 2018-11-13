@@ -4,8 +4,9 @@ import { EditableComponent } from 'src/app/model/editable-component';
 import { Type } from '@angular/compiler/src/core';
 import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
-import { DialogModalComponent, ModalButton } from '../dialog-modal/dialog-modal.component';
 import { EditReviewComponent } from '../edit-review/edit-review.component';
+import { DialogService } from 'src/app/service/dialog.service';
+import { ModalButton } from '../dialog-modal/dialog-modal.component';
 
 @Directive({
   selector: '[appHost]',
@@ -30,20 +31,21 @@ export class EditModalComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   ngAfterViewInit() {
+
   }
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
-     private dialog: DialogModalComponent) {
+     private dialog: DialogService) {
   }
 
   ngOnInit() {
     this.setHost(this.hash[this.displaycomponent], this.params);
 
-    this.dialog.buttons.push(new ModalButton('Save', () => {
-      this.dialog.display(false);
+    this.dialog.dialogModal.buttons.push(new ModalButton('Save', () => {
+      this.dialog.dialogModal.display(false);
     }, 'success'));
 
-    this.dialog.buttons.push(new ModalButton('Cancel', () => {
-      this.dialog.display(false);
+    this.dialog.dialogModal.buttons.push(new ModalButton('Cancel', () => {
+      this.dialog.dialogModal.display(false);
     }, 'light'));
   }
 

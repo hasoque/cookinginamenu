@@ -26,7 +26,8 @@
         <a (click)="onBtnRegister()" class="nav-link waves-light">Register</a>
       </div>
       <div *ngSwitchCase="true">
-        <span class="fa fa-user-circle-o fa-2x"></span>
+        <button (click)="createRecipe()" placement="left" [mdbTooltip]="'Upload Recipe'" class="btn btn-info btn-circle"><i class="fa fa-plus-circle"></i></button>
+        <a [routerLink]="['/user', getUserLoggedIn().id]" class="btn btn-light btn-circle"><i class="fa fa-user"></i></a>
       </div>
     </div>
   </links>
