@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EditableComponent } from 'src/app/model/editable-component';
+import { ModalComponent } from 'src/app/model/editable-component';
 import { DialogService } from 'src/app/service/dialog.service';
 import { ModalButton } from '../dialog-modal/dialog-modal.component';
 
@@ -8,7 +8,7 @@ import { ModalButton } from '../dialog-modal/dialog-modal.component';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.scss']
 })
-export class EditUserComponent implements OnInit, EditableComponent {
+export class EditUserComponent implements OnInit, ModalComponent {
 
   @Input() data: any;
   constructor(private dialog: DialogService) { }

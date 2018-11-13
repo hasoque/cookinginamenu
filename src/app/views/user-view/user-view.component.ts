@@ -6,6 +6,7 @@ import { UserService } from 'src/app/service/user/user.service';
 import { RecipeDataService } from 'src/app/service/recipe/recipe-data.service';
 import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { EditUserComponent } from 'src/app/component/edit-user/edit-user.component';
 
 @Component({
   selector: 'app-user-view',
@@ -31,12 +32,12 @@ export class UserViewComponent implements OnInit {
       this.contributionstag = this.uservice.getContributionTags(this.info.id);
     });
   }
+
   onEditing() {
+    this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.info.name;
+    this.dialog.dialogModal.config.componentdisplay = EditUserComponent;
+    this.dialog.dialogModal.config.params = {user: this.info};
+    this.dialog.dialogModal.config.modalsize = 'modal-lg';
     this.dialog.dialogModal.display(true);
-    this.dialog.dialogModal.data['title'] = 'Edit Recipe ' + this.info.name;
-    this.dialog.dialogModal.data['type'] = 'edit';
-    this.dialog.dialogModal.data['editview'] = 'edit-user';
-    this.dialog.dialogModal.data['editparam'] = {user: this.info};
-    this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
   }
 }

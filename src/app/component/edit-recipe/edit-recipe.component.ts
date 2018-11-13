@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EditableComponent } from 'src/app/model/editable-component';
+import { ModalComponent } from 'src/app/model/editable-component';
 import { Ingredient, Procedure } from 'src/app/model/recipe-model';
 
 @Component({
@@ -7,7 +7,7 @@ import { Ingredient, Procedure } from 'src/app/model/recipe-model';
   templateUrl: './edit-recipe.component.html',
   styleUrls: ['./edit-recipe.component.scss']
 })
-export class EditRecipeComponent implements OnInit, EditableComponent {
+export class EditRecipeComponent implements OnInit, ModalComponent {
 
   @Input() data: any;
   constructor() { }

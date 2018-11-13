@@ -16,19 +16,19 @@ import { HomepageComponent } from './views/homepage/homepage.component';
 import { ReviewItemComponent } from './component/review-item/review-item.component';
 import { RateIconComponent } from './component/rate-icon/rate-icon.component';
 import { UserIconComponent } from './component/user-icon/user-icon.component';
-import { DialogModalComponent } from './component/dialog-modal/dialog-modal.component';
+import { DialogModalComponent, HostDirective } from './component/dialog-modal/dialog-modal.component';
 import { AuthViewComponent } from './views/auth-view/auth-view.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
 import { EditRecipeComponent } from './component/edit-recipe/edit-recipe.component';
 import { EditReviewComponent } from './component/edit-review/edit-review.component';
-import { EditModalComponent, HostDirective } from './component/edit-modal/edit-modal.component';
 import { DialogService } from './service/dialog.service';
 import { ReviewsDataService } from './service/review/reviews-data.service';
 import { AccountService } from './service/account/account.service';
 import { RecipeDataService } from './service/recipe/recipe-data.service';
 import { UserService } from './service/user/user.service';
+import { ReviewListComponent } from './component/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +49,8 @@ import { UserService } from './service/user/user.service';
     EditUserComponent,
     EditRecipeComponent,
     EditReviewComponent,
-    EditModalComponent,
-    HostDirective
+    HostDirective,
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,

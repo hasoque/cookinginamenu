@@ -7,6 +7,7 @@ import { RecipeDataService } from 'src/app/service/recipe/recipe-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
 import { UserService } from 'src/app/service/user/user.service';
+import { EditRecipeComponent } from 'src/app/component/edit-recipe/edit-recipe.component';
 
 @Component({
   selector: 'app-recipe',
@@ -42,11 +43,11 @@ export class RecipeComponent implements OnInit, AfterViewInit {
   }
 
   editRecipe() {
-    this.dialog.dialogModal.data['title'] = 'Edit Recipe ' + this.data.name;
-    this.dialog.dialogModal.data['type'] = 'edit';
-    this.dialog.dialogModal.data['editview'] = 'edit-recipe';
-    this.dialog.dialogModal.data['editparam'] = {recipe: this.data};
-    this.dialog.dialogModal.data['modal-size'] = 'modal-lg';
+
+    this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.data.name;
+    this.dialog.dialogModal.config.componentdisplay = EditRecipeComponent;
+    this.dialog.dialogModal.config.params = {recipe: this.data};
+    this.dialog.dialogModal.config.modalsize = 'modal-lg';
     this.dialog.dialogModal.display(true);
   }
 }

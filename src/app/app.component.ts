@@ -4,6 +4,9 @@ import { DialogService } from './service/dialog.service';
 import { Router } from '@angular/router';
 import { AccountService } from './service/account/account.service';
 import { RecipeModel } from './model/recipe-model';
+import { EditRecipeComponent } from './component/edit-recipe/edit-recipe.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 @Component({
@@ -27,25 +30,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   createRecipe() {
+    this.modal.config.title = 'Upload Recipe';
+    this.modal.config.componentdisplay = EditRecipeComponent;
+    this.modal.config.params = {recipe: new RecipeModel()};
+    this.modal.config.modalsize = 'modal-lg';
     this.modal.display(true);
-    this.modal.data['title'] = 'Upload Recipe';
-    this.modal.data['type'] = 'edit';
-    this.modal.data['editview'] = 'edit-recipe';
-    this.modal.data['editparam'] = {recipe: new RecipeModel()};
-    this.modal.data['modal-size'] = 'modal-lg';
   }
 
   onBtnLogin() {
-    this.modal.data['title'] = 'Login';
-    this.modal.data['modal-size'] = '';
-    this.modal.data['type'] = 'login';
+    this.modal.config.title = 'Login';
+    this.modal.config.componentdisplay = LoginComponent;
+    this.modal.config.modalsize = '';
     this.modal.display(true);
   }
 
   onBtnRegister() {
-    this.modal.data['title'] = 'Register';
-    this.modal.data['modal-size'] = '';
-    this.modal.data['type'] = 'register';
+    this.modal.config.title = 'Register';
+    this.modal.config.modalsize = '';
+    this.modal.config.componentdisplay = RegisterComponent;
     this.modal.display(true);
   }
 

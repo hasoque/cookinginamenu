@@ -1,3 +1,3 @@
-export interface EditableComponent {
+export interface ModalComponent {
   data?: any;
 }
