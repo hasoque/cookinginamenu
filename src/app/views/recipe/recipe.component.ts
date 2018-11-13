@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
 import { UserService } from 'src/app/service/user/user.service';
 import { EditRecipeComponent } from 'src/app/component/edit-recipe/edit-recipe.component';
+import { ModalButton } from 'src/app/component/dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-recipe',
@@ -48,6 +49,12 @@ export class RecipeComponent implements OnInit, AfterViewInit {
     this.dialog.dialogModal.config.componentdisplay = EditRecipeComponent;
     this.dialog.dialogModal.config.params = {recipe: this.data};
     this.dialog.dialogModal.config.modalsize = 'modal-lg';
+    this.dialog.dialogModal.buttons = [new ModalButton('Save Edit', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'success')
+    , new ModalButton('Cancel Edit', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'light')];
     this.dialog.dialogModal.display(true);
   }
 }

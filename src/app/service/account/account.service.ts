@@ -8,7 +8,6 @@ export class AccountService {
 
   user: UserModel;
   constructor() {
-    this.user = new UserModel();
   }
 
   /**

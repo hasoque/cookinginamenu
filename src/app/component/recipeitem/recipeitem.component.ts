@@ -32,7 +32,7 @@ export class RecipeitemComponent implements OnInit {
     this.dialog.dialogModal.config.title = (this.data.name + '\'s Reviews').toUpperCase();
     this.dialog.dialogModal.config.modalsize = 'modal-lg';
     this.dialog.dialogModal.config.componentdisplay = ReviewListComponent;
-    this.dialog.dialogModal.config.params.reviewlist = this.reviewList;
+    this.dialog.dialogModal.config.params = {reviewlist: this.reviewList};
     this.dialog.dialogModal.display(true);
   }
 }

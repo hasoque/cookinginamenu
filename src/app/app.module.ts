@@ -99,7 +99,7 @@ import { ReviewListComponent } from './component/review-list/review-list.compone
     ])
   ],
   providers: [UserService, DialogService, RecipeDataService, ReviewsDataService, AccountService],
-  entryComponents: [ EditRecipeComponent, EditReviewComponent, EditUserComponent ],
+  entryComponents: [ EditRecipeComponent, EditReviewComponent, EditUserComponent, LoginComponent, RegisterComponent, ReviewListComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -86,14 +86,6 @@ export class DialogModalComponent implements OnInit {
 
   createView() {
     this.setHost(this.config.componentdisplay, this.config.params);
-
-    this.dialog.dialogModal.buttons.push(new ModalButton('Save', () => {
-      this.dialog.dialogModal.display(false);
-    }, 'success'));
-
-    this.dialog.dialogModal.buttons.push(new ModalButton('Cancel', () => {
-      this.dialog.dialogModal.display(false);
-    }, 'light'));
   }
 
   setHost(component: Type, params: any) {
