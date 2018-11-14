@@ -1,9 +1,9 @@
-<span (mouseenter)="show = true" (mouseleave)="show = false" class="icon-body">
-  <a [routerLink]="['/user', user.id]">
+<span (mouseenter)="onHover(true)" (mouseleave)="onHover(false)" class="icon-body">
+  <a [routerLink]="['/user', data]">
     {{user.name}}
   </a>
   <div class="user-tooltip" *ngIf="show">
-    <a [routerLink]="['/user', user.id]">
+    <a [routerLink]="['/user', data]">
       <img class="image-center" src="http://placehold.it/64x64" alt="">
       <h6>{{user.fname +' '+ user.lname}}</h6>
     </a>

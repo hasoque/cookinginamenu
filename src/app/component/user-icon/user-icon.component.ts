@@ -17,8 +17,15 @@ export class UserIconComponent implements OnInit {
 
   ngOnInit() {
     if (this.user === undefined) {
-      this.user = this.uservice.getUser(this.data);
+      this.user = this.uservice.getIconizedUser(this.data);
     }
+  }
+
+  onHover(show: boolean) {
+    if (this.user.fname === undefined) {
+     this.uservice.fillUserSimple(this.user);
+    }
+    this.show = show;
   }
 
 }

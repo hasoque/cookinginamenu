@@ -16,6 +16,20 @@ export class UserService {
     return new UserModel(id);
   }
 
+  getIconizedUser(id: number): UserModel {
+    return new UserModel(id);
+  }
+
+  fillUserSimple(user: UserModel) {
+    const u = new UserModel(user.id);
+    user.fname = u.fname;
+    user.reviewkarma = u.reviewkarma;
+    user.lname = u.lname;
+    user.followerCount = u.followerCount;
+    user.avgrating = u.avgrating;
+    user.dateJoined = u.dateJoined;
+  }
+
   /**
    * insert or update user input
    * @param user user to update or insert
