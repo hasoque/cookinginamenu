@@ -4,7 +4,7 @@
       <img class="image rounded-circle" src="http://placehold.it/64x64" alt="">
     </div>
     <div class="col-8">
-      <app-user-icon [data]="reviewer"></app-user-icon>
+      <app-user-icon [data]="reviewer.id"></app-user-icon>
       <br>
       <app-rate-icon [score]="data.rate"></app-rate-icon>
       <br>
@@ -14,5 +14,6 @@
   <p>
     <small>{{data.reviewtext}}</small>
   </p>
-  <div><span class="fa fa-arrow-up"></span><small>{{data.likes}}</small><span class="fa fa-arrow-down"></span></div>
+  <div><span class="fa fa-arrow-up" (click)="upvote()"></span><small>{{data.likes}}</small><span class="fa fa-arrow-down"
+      (click)="downvote()"></span></div>
 </div>

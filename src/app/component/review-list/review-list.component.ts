@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from 'src/app/model/editable-component';
+import { UserModel } from 'src/app/model/user-model';
 
 @Component({
   selector: 'app-review-list',
@@ -12,6 +13,9 @@ export class ReviewListComponent implements OnInit, ModalComponent {
   constructor() { }
 
   ngOnInit() {
+  }
+  getReviewer(id: number) {
+    return new UserModel(id);
   }
 
 }

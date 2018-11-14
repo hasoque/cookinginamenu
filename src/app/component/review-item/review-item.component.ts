@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { ReviewModel } from 'src/app/model/review-model';
 import { UserModel } from 'src/app/model/user-model';
+import { UserService } from 'src/app/service/user/user.service';
+import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
 
 
 @Component({
@@ -12,8 +14,8 @@ export class ReviewItemComponent implements OnInit, AfterViewInit {
 
   @Input() data: ReviewModel;
   reviewer: UserModel;
-  constructor() {
-    this.reviewer = new UserModel();
+  constructor(private uservice: UserService,
+    private reviewservice: ReviewsDataService) {
   }
   getElementReference() {
 
@@ -21,5 +23,14 @@ export class ReviewItemComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
   }
   ngOnInit() {
+    this.reviewer = this.uservice.getUser(this.data.id);
+  }
+  upvote() {
+    this.reviewservice.upvote(this.data.id, this.reviewer.id);
+  }
+
+  downvote() {
+    this.reviewservice.downvote(this.data.id, this.reviewer.id);
+
   }
 }

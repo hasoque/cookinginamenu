@@ -7,7 +7,7 @@
     <small class="card-text">{{data.description.slice(0,100)}}....</small>
   </div>
   <div class="card-footer">
-    <app-user-icon [data]="uploader"></app-user-icon>
+    <app-user-icon [data]="uploader.id"></app-user-icon>
     <h6 class="card-subtitle">Rating: {{data.trating}}</h6>
     <span (click)="onRateClick()" class="rate-icon">
       <app-rate-icon [score]="data.avgrating"></app-rate-icon>

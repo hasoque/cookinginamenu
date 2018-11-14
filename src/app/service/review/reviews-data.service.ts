@@ -25,6 +25,13 @@ export class ReviewsDataService {
   putReviewTo(recipe: RecipeModel, byUser: UserModel) {
 
   }
+
+  upvote(reviewid: number, upvoterid: number) {
+
+  }
+  downvote(reviewid: number, upvoterid: number) {
+
+  }
   /**
    * reviews of corresponding user
    * @param user owner of review

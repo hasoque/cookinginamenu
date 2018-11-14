@@ -1,16 +1,16 @@
 <span (mouseenter)="show = true" (mouseleave)="show = false" class="icon-body">
-  <a [routerLink]="['/user', data.id]">
-    {{data.name}}
+  <a [routerLink]="['/user', user.id]">
+    {{user.name}}
   </a>
   <div class="user-tooltip" *ngIf="show">
-    <a [routerLink]="['/user', data.id]">
+    <a [routerLink]="['/user', user.id]">
       <img class="image-center" src="http://placehold.it/64x64" alt="">
-      <h6>{{data.fname +' '+ data.lname}}</h6>
+      <h6>{{user.fname +' '+ user.lname}}</h6>
     </a>
-    <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{data.followerCount}}</div>
+    <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{user.followerCount}}</div>
     <div class="text-item" [mdbTooltip]="'Posted Recipes Average Rating'">
-      <app-rate-icon [score]="data.avgrating"></app-rate-icon>
+      <app-rate-icon [score]="user.avgrating"></app-rate-icon>
     </div>
-    <div class="text-item" [mdbTooltip]="'Review Likes'"><span class="fa fa-arrow-circle-up"></span>{{data.reviewkarma}}</div>
+    <div class="text-item" [mdbTooltip]="'Review Likes'"><span class="fa fa-arrow-circle-up"></span>{{user.reviewkarma}}</div>
   </div>
 </span>

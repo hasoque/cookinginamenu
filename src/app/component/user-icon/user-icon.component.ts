@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserModel } from 'src/app/model/user-model';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-user-icon',
@@ -8,12 +9,16 @@ import { UserModel } from 'src/app/model/user-model';
 })
 export class UserIconComponent implements OnInit {
 
-  @Input() data: UserModel;
+  @Input() data: number;
+  user: UserModel;
   show: boolean;
 
-  constructor() { }
+  constructor(private uservice: UserService) { }
 
   ngOnInit() {
+    if (this.user === undefined) {
+      this.user = this.uservice.getUser(this.data);
+    }
   }
 
 }

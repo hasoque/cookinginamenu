@@ -9,6 +9,7 @@ import { ReviewsDataService } from 'src/app/service/review/reviews-data.service'
 import { UserService } from 'src/app/service/user/user.service';
 import { EditRecipeComponent } from 'src/app/component/edit-recipe/edit-recipe.component';
 import { ModalButton } from 'src/app/component/dialog-modal/dialog-modal.component';
+import { EditReviewComponent } from 'src/app/component/edit-review/edit-review.component';
 
 @Component({
   selector: 'app-recipe',
@@ -43,8 +44,20 @@ export class RecipeComponent implements OnInit, AfterViewInit {
 
   }
 
+  onReviewRecipe() {
+    this.dialog.dialogModal.config.title = 'Review ' + this.data.name;
+    this.dialog.dialogModal.config.componentdisplay = EditReviewComponent;
+    this.dialog.dialogModal.config.params = {review: new ReviewModel()};
+    this.dialog.dialogModal.config.modalsize = 'modal-lg';
+    this.dialog.dialogModal.buttons = [new ModalButton('Save Edit', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'success')
+    , new ModalButton('Cancel Edit', () => {
+      this.dialog.dialogModal.display(false);
+    }, 'light')];
+    this.dialog.dialogModal.display(true);
+  }
   editRecipe() {
-
     this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.data.name;
     this.dialog.dialogModal.config.componentdisplay = EditRecipeComponent;
     this.dialog.dialogModal.config.params = {recipe: this.data};
