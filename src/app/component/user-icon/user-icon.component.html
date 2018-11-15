@@ -7,7 +7,7 @@
       <img class="image-center" src="http://placehold.it/64x64" alt="">
       <h6>{{user.fname +' '+ user.lname}}</h6>
     </a>
-    <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{user.followerCount}}</div>
+    <div class="text-item" [mdbTooltip]="'Followers'"><span class="fa fa-user-plus"></span>{{formatFollower()}}</div>
     <div class="text-item" [mdbTooltip]="'Posted Recipes Average Rating'">
       <app-rate-icon [score]="user.avgrating"></app-rate-icon>
     </div>

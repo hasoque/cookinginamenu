@@ -27,5 +27,12 @@ export class UserIconComponent implements OnInit {
     }
     this.show = show;
   }
-
+  formatFollower(): string {
+    if (this.user.followerCount < 9999) {
+      return this.user.followerCount + '';
+    }
+    const suffix = ['k', 'M', 'B'];
+    const sufindex = Math.floor(Math.log10(this.user.followerCount) / 3);
+    return (this.user.followerCount / Math.pow(1000, sufindex)).toFixed(3 - Math.log10(this.user.followerCount) % 3) + suffix[sufindex - 1];
+  }
 }
