@@ -37,6 +37,15 @@ export class UserViewComponent implements OnInit {
     this.uservice.followUser(this.info.id);
   }
 
+  formatFollower(num: number): string {
+    if (num < 9999) {
+      return num + '';
+    }
+    const suffix = ['k', 'M', 'B'];
+    const sufindex = Math.floor(Math.log10(num) / 3);
+    return (num / Math.pow(1000, sufindex)).toFixed(3 - Math.log10(num) % 3) + suffix[sufindex - 1];
+  }
+
   onEditing() {
     this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.info.name;
     this.dialog.dialogModal.config.componentdisplay = EditUserComponent;

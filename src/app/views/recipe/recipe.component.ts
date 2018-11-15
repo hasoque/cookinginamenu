@@ -73,10 +73,4 @@ export class RecipeComponent implements OnInit, AfterViewInit {
     }, 'light')];
     this.dialog.dialogModal.display(true);
   }
-
-  formatFollower(num: number): string {
-    const suffix = ['', 'k', 'm', 'b'];
-    const sufindex = Math.log10(num) / 3;
-    return num.toFixed(0) + suffix[sufindex];
-  }
 }

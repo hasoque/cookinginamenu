@@ -10,7 +10,7 @@
           <h6>
             <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.reviewkarma}})</span>
           </h6>
-          <button (click)="onFollowBtn()" class="btn btn-info"><span class="fa fa-user-plus fa-2x"></span>Follower {{formatFollower(info.followerCount)}}</button>
+          <button (click)="onFollowBtn()" class="btn btn-info" [mdbTooltip]="info.followerCount + ' Followers'">{{formatFollower(info.followerCount)}} Follower(s)</button>
           <h6>Joined <span style="color:gray">{{info.dateJoined.toDateString()}}</span></h6>
         </div>
         <div class="list-unstyled row text-left">
