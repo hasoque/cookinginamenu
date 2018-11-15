@@ -33,6 +33,10 @@ export class UserViewComponent implements OnInit {
     });
   }
 
+  onFollowBtn() {
+    this.uservice.followUser(this.info.id);
+  }
+
   onEditing() {
     this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.info.name;
     this.dialog.dialogModal.config.componentdisplay = EditUserComponent;

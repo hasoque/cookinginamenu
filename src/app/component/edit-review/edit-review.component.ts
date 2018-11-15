@@ -9,9 +9,19 @@ import { ModalComponent } from 'src/app/model/editable-component';
 export class EditReviewComponent implements OnInit, ModalComponent {
 
   @Input() data: any;
+  rating = 1;
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  onRate(amount: number) {
+    this.rating = amount;
+  }
+
+  counter(i: number) {
+    return new Array(i);
   }
 
 }

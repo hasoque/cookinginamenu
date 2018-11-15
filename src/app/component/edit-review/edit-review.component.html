@@ -1,6 +1,13 @@
 <div class="container">
-    <form>
-      <input [(ngModel)]="data.review.description" name="description">
-      <input [(ngModel)]="data.review.rating" name="rating">
-    </form>
-  </div>
+  <form>
+    <div class="container text-center">
+      <label>Rate Recipe</label><br>
+      <span (click)="onRate(i+1)" *ngFor="let x of counter(5); let i = index"
+            class="fa fa-star fa-3x {{rating > i ? 'checked':''}}"></span>
+      <h6><b>{{rating}}</b></h6>
+    </div>
+    <br>
+    <label class="form-check form-check-label">Your Review</label>
+    <textarea rows="10" class="form-control" [(ngModel)]="data.review.description" name="description"></textarea>
+  </form>
+</div>

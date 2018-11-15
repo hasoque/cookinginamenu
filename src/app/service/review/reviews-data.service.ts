@@ -13,8 +13,9 @@ export class ReviewsDataService {
   /**
    * get reviews of recipe input
    * @param recipe get the reviews of recipe model
+   * @param chunk maximum length of result
    */
-  getReviewsFrom(recipe: RecipeModel): Array<ReviewModel> {
+  getReviewsFrom(recipeid: number, chunk: number): Array<ReviewModel> {
     return [new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel()];
   }
   /**
@@ -36,7 +37,7 @@ export class ReviewsDataService {
    * reviews of corresponding user
    * @param user owner of review
    */
-  getReviewsOf(user: UserModel): Array<ReviewModel> {
+  getReviewsOf(userid: number): Array<ReviewModel> {
     return [new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel()];
   }
 }

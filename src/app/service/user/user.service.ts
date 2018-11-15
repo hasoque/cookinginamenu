@@ -46,4 +46,8 @@ export class UserService {
     return [new ReviewedRecipe(), new ReviewedRecipe(), new ReviewedRecipe(), new ReviewedRecipe()
       , new ReviewedRecipe()];
   }
+
+  followUser(userid: number) {
+
+  }
 }

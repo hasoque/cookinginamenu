@@ -1,5 +1,5 @@
 <div class="list-group">
-  <div class="list-group-item" style="margin-top: 8px; margin-bottom: 8px" *ngFor="let item of data.reviewlist">
+  <div class="list-group-item" style="margin-top: 8px; margin-bottom: 8px" *ngFor="let item of getReviews(data.recipeid)">
     <div class="container container-review">
       <div class="row">
         <div class="col-4 col-lg-2 text-center">

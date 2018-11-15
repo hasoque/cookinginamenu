@@ -43,7 +43,7 @@ export class DialogModalComponent implements OnInit {
   public visible = false;
   public visibleAnimate = false;
   public buttons: Array<ModalButton>;
-  public loading: boolean;
+  public loading = false;
   /**
    *
    * "title" = display to title default is Loading,

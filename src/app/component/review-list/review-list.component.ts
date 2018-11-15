@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from 'src/app/model/editable-component';
-import { UserModel } from 'src/app/model/user-model';
+import { ReviewsDataService } from 'src/app/service/review/reviews-data.service';
+import { ReviewModel } from 'src/app/model/review-model';
 
 @Component({
   selector: 'app-review-list',
@@ -10,12 +11,20 @@ import { UserModel } from 'src/app/model/user-model';
 export class ReviewListComponent implements OnInit, ModalComponent {
 
   data: any;
-  constructor() { }
+  reviewlist: Array<ReviewModel> = [];
+
+  constructor(private reviewservice: ReviewsDataService) {
+
+  }
 
   ngOnInit() {
-  }
-  getReviewer(id: number) {
-    return new UserModel(id);
+
   }
 
+  getReviews(recipeid: number): Array<ReviewModel> {
+    if (this.reviewlist.length === 0) {
+      this.reviewlist = this.reviewservice.getReviewsFrom(recipeid, 5);
+    }
+    return this.reviewlist;
+  }
 }

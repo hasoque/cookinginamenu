@@ -36,7 +36,7 @@ export class RecipeComponent implements OnInit, AfterViewInit {
       this.uploader = this.userservice.getUser(this.data.uploaderid);
       this.similar = this.recipeservice.searchForItems('', [], [], 5);
       this.recommended = this.recipeservice.searchForItems('', [], [], 5);
-      this.reviewlist = this.revservice.getReviewsFrom(this.data);
+      this.reviewlist = this.revservice.getReviewsFrom(this.data.id, 5);
     });
   }
 
@@ -45,18 +45,21 @@ export class RecipeComponent implements OnInit, AfterViewInit {
   }
 
   onReviewRecipe() {
-    this.dialog.dialogModal.config.title = 'Review ' + this.data.name;
+    this.dialog.dialogModal.config.title = 'Review ' + this.data.name.toLocaleUpperCase();
     this.dialog.dialogModal.config.componentdisplay = EditReviewComponent;
     this.dialog.dialogModal.config.params = {review: new ReviewModel()};
-    this.dialog.dialogModal.config.modalsize = 'modal-lg';
+    this.dialog.dialogModal.config.modalsize = '';
     this.dialog.dialogModal.buttons = [new ModalButton('Save Edit', () => {
-      this.dialog.dialogModal.display(false);
+      for (let x = 9; x < 5000; x++) {
+        console.log('abc');
+      }
     }, 'success')
     , new ModalButton('Cancel Edit', () => {
       this.dialog.dialogModal.display(false);
     }, 'light')];
     this.dialog.dialogModal.display(true);
   }
+
   editRecipe() {
     this.dialog.dialogModal.config.title = 'Edit Recipe ' + this.data.name;
     this.dialog.dialogModal.config.componentdisplay = EditRecipeComponent;
@@ -69,5 +72,11 @@ export class RecipeComponent implements OnInit, AfterViewInit {
       this.dialog.dialogModal.display(false);
     }, 'light')];
     this.dialog.dialogModal.display(true);
+  }
+
+  formatFollower(num: number): string {
+    const suffix = ['', 'k', 'm', 'b'];
+    const sufindex = Math.log10(num) / 3;
+    return num.toFixed(0) + suffix[sufindex];
   }
 }
