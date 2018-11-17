@@ -50,7 +50,27 @@
         <div class="card-body rec-recipe-body">
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let item of reviewlist">
-              <app-review-item [data]="item"></app-review-item>
+              <div class="container container-review">
+                <div class="row">
+                  <div class="col-4">
+                    <img class="image rounded-circle" src="http://placehold.it/64x64" alt="">
+                  </div>
+                  <div class="col-8">
+                    <app-user-icon [data]="item.reviewerid"></app-user-icon>
+                    <br>
+                    <app-rate-icon [score]="item.rate"></app-rate-icon>
+                    <br>
+                    <small>{{item.date.toDateString()}}</small>
+                  </div>
+                </div>
+                <p>
+                  <small>{{item.reviewtext}}</small>
+                </p>
+                <div>
+                  <small>Likes: {{item.likes}}</small>
+                </div>
+              </div>
+
             </li>
           </ul>
         </div>
@@ -69,7 +89,7 @@
             <div class="list-group-item">
               <div class="row">
                 <div class="col-4">
-                    <img class="rounded" src="http://placehold.it/140x128" alt="">
+                  <img class="rounded" src="http://placehold.it/140x128" alt="">
                 </div>
                 <div class="col-8">
                   <a [routerLink]="['/recipe/', item.id]">

@@ -1,23 +1,4 @@
 <div class="list-group">
-  <div class="list-group-item" style="margin-top: 8px; margin-bottom: 8px" *ngFor="let item of getReviews(data.recipeid)">
-    <div class="container container-review">
-      <div class="row">
-        <div class="col-4 col-lg-2 text-center">
-          <img class="image rounded-circle" src="http://placehold.it/64x64" alt="">
-        </div>
-        <div class="col-8 col-lg-3">
-          <app-user-icon [data]="item.reviewerid"></app-user-icon>
-          <br>
-          <app-rate-icon [score]="item.rate"></app-rate-icon>
-          <br>
-          <small>{{item.date.toDateString()}}</small>
-        </div>
-        <div class="col-12 col-lg-7">
-          <small>{{item.reviewtext}}</small>
-        </div>
-      </div>
-      <div>Likes: {{item.likes}}</div>
-    </div>
-  </div>
+  <app-review-item *ngFor="let item of getReviews()" class="list-group-item" [data]="item"></app-review-item>
 </div>
-<button class="btn btn-success">Load More</button>
+<button class="btn btn-success" (click)="loadReviews()">Load More</button>

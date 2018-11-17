@@ -18,12 +18,15 @@ export class ReviewListComponent implements OnInit, ModalComponent {
   }
 
   ngOnInit() {
-
   }
 
-  getReviews(recipeid: number): Array<ReviewModel> {
+  loadReviews() {
+    this.reviewlist = this.reviewlist.concat(this.reviewservice.getReviewsFrom(this.data, this.reviewlist.length / 5));
+  }
+
+  getReviews(): Array<ReviewModel> {
     if (this.reviewlist.length === 0) {
-      this.reviewlist = this.reviewservice.getReviewsFrom(recipeid, 5);
+      this.reviewlist = this.reviewservice.getReviewsFrom(this.data, 0);
     }
     return this.reviewlist;
   }

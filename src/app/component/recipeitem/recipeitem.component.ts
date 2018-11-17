@@ -33,6 +33,7 @@ export class RecipeitemComponent implements OnInit {
     this.dialog.dialogModal.config.modalsize = 'modal-lg';
     this.dialog.dialogModal.config.componentdisplay = ReviewListComponent;
     this.dialog.dialogModal.config.params = {reviewlist: this.reviewList};
+    this.dialog.dialogModal.config.buttons = [];
     this.dialog.dialogModal.display(true);
   }
 }

@@ -13,7 +13,7 @@ export class ReviewsDataService {
   /**
    * get reviews of recipe input
    * @param recipe get the reviews of recipe model
-   * @param chunk maximum length of result
+   * @param chunk chunk of result from database query (ex. 5 is from 26 - 30 records)
    */
   getReviewsFrom(recipeid: number, chunk: number): Array<ReviewModel> {
     return [new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel(), new ReviewModel()];

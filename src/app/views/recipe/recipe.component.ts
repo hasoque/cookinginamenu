@@ -49,12 +49,12 @@ export class RecipeComponent implements OnInit, AfterViewInit {
     this.dialog.dialogModal.config.componentdisplay = EditReviewComponent;
     this.dialog.dialogModal.config.params = {review: new ReviewModel()};
     this.dialog.dialogModal.config.modalsize = '';
-    this.dialog.dialogModal.buttons = [new ModalButton('Save Edit', () => {
+    this.dialog.dialogModal.buttons = [new ModalButton('Save', () => {
       for (let x = 9; x < 5000; x++) {
         console.log('abc');
       }
     }, 'success')
-    , new ModalButton('Cancel Edit', () => {
+    , new ModalButton('Cancel', () => {
       this.dialog.dialogModal.display(false);
     }, 'light')];
     this.dialog.dialogModal.display(true);
