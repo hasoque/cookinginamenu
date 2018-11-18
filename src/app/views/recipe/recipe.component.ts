@@ -10,6 +10,7 @@ import { UserService } from 'src/app/service/user/user.service';
 import { EditRecipeComponent } from 'src/app/component/edit-recipe/edit-recipe.component';
 import { ModalButton } from 'src/app/component/dialog-modal/dialog-modal.component';
 import { EditReviewComponent } from 'src/app/component/edit-review/edit-review.component';
+import { ReviewListComponent } from 'src/app/component/review-list/review-list.component';
 
 @Component({
   selector: 'app-recipe',
@@ -71,6 +72,15 @@ export class RecipeComponent implements OnInit, AfterViewInit {
     , new ModalButton('Cancel Edit', () => {
       this.dialog.dialogModal.display(false);
     }, 'light')];
+    this.dialog.dialogModal.display(true);
+  }
+
+  onShowReview() {
+    this.dialog.dialogModal.config.title = (this.data.name + '\'s Reviews').toUpperCase();
+    this.dialog.dialogModal.config.modalsize = 'modal-lg';
+    this.dialog.dialogModal.config.componentdisplay = ReviewListComponent;
+    this.dialog.dialogModal.config.params = {recipeoid: this.data.id};
+    this.dialog.dialogModal.config.buttons = [];
     this.dialog.dialogModal.display(true);
   }
 }

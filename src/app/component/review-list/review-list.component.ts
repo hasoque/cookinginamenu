@@ -21,7 +21,7 @@ export class ReviewListComponent implements OnInit, ModalComponent {
   }
 
   loadReviews() {
-    this.reviewlist = this.reviewlist.concat(this.reviewservice.getReviewsFrom(this.data, this.reviewlist.length / 5));
+    this.reviewlist = this.reviewlist.concat(this.reviewservice.getReviewsFrom(this.data.recipeid, this.reviewlist.length / 5));
   }
 
   getReviews(): Array<ReviewModel> {
