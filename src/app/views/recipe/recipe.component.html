@@ -104,7 +104,8 @@
           </div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-success">Show All</a>
+          <a class="btn btn-success" [queryParams]="{'searchk': data.name, 'searchi': data.ingredientString()}"
+            [routerLink]="['/recipes']">Show All</a>
         </div>
       </div>
     </div>
@@ -133,7 +134,8 @@
           </div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-success">Show All</a>
+          <a class="btn btn-success" [queryParams]="{'searchi': data.ingredientString(), 'searcht': data.taglist}"
+            [routerLink]="['/recipes']">Show All</a>
         </div>
       </div>
     </div>

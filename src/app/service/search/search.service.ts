@@ -25,7 +25,30 @@ export class SearchService {
    * @param searchi search ingredients to filter by ingredients
    * @param filtertype filter Filter[ATLEAST = 1, MUST = 2, EXACT = 3]
    */
-  search(searchs: string, searchtag?: Array<String>, searchi?: Array<String>, filtertype?: Filter) {
+  setSearch(searchs: string, searchtag?: Array<String>, searchi?: Array<String>, filtertype?: Filter) {
+    this.searchString = searchs;
+    this.searchTags = searchtag;
+    this.searchIngredients = searchi;
+    this.filtertype = filtertype;
+  }
 
+  setSearchString(text: string) {
+    this.searchString = text;
+  }
+
+  setSearchTags(tags: Array<String>) {
+    this.searchTags = tags;
+  }
+
+  setSearchIngredients(ingredients: Array<String>) {
+    this.searchIngredients = ingredients;
+  }
+
+  setSearchFilter(type: Filter) {
+    this.filtertype = type;
+
+  }
+
+  navigate() {
   }
 }

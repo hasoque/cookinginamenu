@@ -61,4 +61,11 @@ export class RecipeModel {
       new Procedure(),
       new Procedure()];
   }
+  ingredientString(): Array<String> {
+    const ing = new Array<String>();
+    this.ingredients.forEach(element => {
+      ing.push(element.name);
+    });
+    return ing;
+  }
 }

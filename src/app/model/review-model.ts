@@ -12,8 +12,13 @@ export class ReviewModel {
   likes: number;
   date: Date;
 
-  constructor(recipereviews?: RecipeModel) {
-    this.id = faker.random.number(10);
+  constructor(id?: number) {
+    if (id === undefined) {
+      id = faker.random.number(100);
+    } else {
+      this.id = id;
+      faker.seed(id);
+    }
     this.reviewtext = faker.lorem.paragraph(3);
     this.reviewerid = faker.random.number(100);
     this.rate = faker.random.number(5);
