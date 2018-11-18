@@ -1,6 +1,22 @@
 .red-icon{
  color: red;
+ margin: auto;
+ transition: .5s;
 }
-.login-input{
-  height: 30px;
+.blue-icon{
+  color: lightblue;
+  margin: auto;
+  transition: .5s;
+}
+.green-icon{
+  color: rgb(100, 255, 100);
+  margin: auto;
+  transition: .5s;
+}
+.login-input {
+  height: 40px;
+  margin: auto;
+}
+.login-content {
+  margin-top: 30px;
 }

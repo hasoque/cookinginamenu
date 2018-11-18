@@ -27,6 +27,8 @@ export class AccountService {
    * @param password password input string[_A-Za-z0-9]
    */
   tryLogin(username: string, password: string): boolean {
-    return false;
+    this.user = new UserModel();
+    this.user.name = username;
+    return true;
   }
 }

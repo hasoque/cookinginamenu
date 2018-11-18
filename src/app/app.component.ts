@@ -48,6 +48,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.modal.config.title = 'Register';
     this.modal.config.modalsize = '';
     this.modal.config.componentdisplay = RegisterComponent;
+    this.modal.buttons = [new ModalButton('Register', () => {}, 'success'),
+                          new ModalButton('Cancel', () => {}, 'light')];
     this.modal.display(true);
   }
 

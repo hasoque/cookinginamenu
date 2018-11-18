@@ -1,9 +1,12 @@
-<div class="form-group row">
-  <label class="col-lg-4">Username</label>
-  <input [(ngModel)]="username" class="login-input form-control col-lg-7 col-11" type="text" required>
-  <span *ngIf="username.length === 0" class="col-1 fa fa-warning red-icon"></span>
+<div class="form-group row login-content">
+  <label class="col-2 fa fa-user fa-2x blue-icon"></label>
+  <input [(ngModel)]="username" placeholder="Enter Username" class="login-input form-control col-9" type="text" required>
+  <span class="col-1 fa {{username.length === 0? 'fa-warning red-icon':'fa-check green-icon'}}"></span>
+
+  <div class="col-12" style="margin-bottom: 10px"></div>
+
+  <label class="col-2 fa fa-lock fa-2x blue-icon"></label>
+  <input [(ngModel)]="password" placeholder="Enter Password" class="login-input form-control col-9" type="password" required>
+  <span class="col-1 fa {{password.length === 0? 'fa-warning red-icon':'fa-check green-icon'}} red-icon"></span>
   <br>
-  <label class="col-lg-4">Password</label>
-  <input [(ngModel)]="password" class="login-input form-control col-lg-7 col-11" type="password" required>
-  <span *ngIf="password.length === 0" class="col-1 fa fa-warning red-icon"></span>
 </div>
