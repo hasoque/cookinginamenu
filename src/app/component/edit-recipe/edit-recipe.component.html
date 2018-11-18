@@ -1,12 +1,25 @@
 <div class="container">
   <form>
-    <label for="title">Recipe Name</label>
-    <input id="title" class="form-control form-control-sm" [(ngModel)]="data.recipe.name" name="username" placeholder="Recipe Name">
-    <label for="description">Description</label>
-    <textarea rows="10" class="form-control form-control-sm" [(ngModel)]="data.recipe.description" name="description" placeholder="Description"></textarea>
-    <tag-input [(ngModel)]="data.recipe.taglist" [modelAsStrings]="true" name="tags"></tag-input>
-    <hr>
-    <div class="container" style="margin-bottom: 10px">
+    <ul class="nav nav-tabs" style="margin-bottom: 10px">
+      <li class="nav-item">
+        <a class="nav-link {{view === 'info'?'active':''}}" (click)="setView('info')">Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{view === 'ingredients'?'active':''}}" (click)="setView('ingredients')">Ingredients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{view === 'procedures'?'active':''}}" (click)="setView('procedures')">Procedures</a>
+      </li>
+    </ul>
+    <div *ngIf="view==='info'" class="container" style="margin-bottom: 10px">
+      <label for="title">Recipe Name</label>
+      <input id="title" class="form-control form-control-sm" [(ngModel)]="data.recipe.name" name="username" placeholder="Recipe Name">
+      <label for="description">Description</label>
+      <textarea rows="10" class="form-control form-control-sm" [(ngModel)]="data.recipe.description" name="description"
+        placeholder="Description"></textarea>
+      <tag-input [(ngModel)]="data.recipe.taglist" [modelAsStrings]="true" name="tags"></tag-input>
+    </div>
+    <div *ngIf="view==='ingredients'" class="container" style="margin-bottom: 10px">
       <h5>Ingredients</h5>
       <button (click)="addIngredient()">Add Ingredient</button>
       <div class="row" style="margin-bottom: 5px" *ngFor="let ingredient of data.recipe.ingredients; let i = index">
@@ -15,7 +28,7 @@
         <span class="fa fa-close col-1" [mdbTooltip]="'delete item'" (click)="deleteIngredient(i)"></span>
       </div>
     </div>
-    <div class="container">
+    <div *ngIf="view==='procedures'" class="container">
       <h5>Procedure</h5>
       <button (click)="addProcedure()">Add Procedure</button>
       <div *ngFor="let procedure of data.recipe.procedures; let i = index">

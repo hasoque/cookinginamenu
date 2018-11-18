@@ -10,9 +10,15 @@ import { Ingredient, Procedure } from 'src/app/model/recipe-model';
 export class EditRecipeComponent implements OnInit, ModalComponent {
 
   @Input() data: any;
+  view: string;
   constructor() { }
 
   ngOnInit() {
+    this.view = 'info';
+  }
+
+  setView(v: string) {
+    this.view = v;
   }
 
   addIngredient() {
