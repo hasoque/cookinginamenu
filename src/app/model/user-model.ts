@@ -37,6 +37,7 @@ export class UserModel {
   password: string;
   followerCount: number;
   dateJoined: Date;
+  email: string;
 
   constructor(id?: number) {
     if (id !== undefined) {
@@ -53,5 +54,6 @@ export class UserModel {
     this.lname = faker.name.lastName();
     this.name = this.fname.slice(faker.random.number(this.fname.length / 2), this.fname.length) + faker.lorem.word();
     this.dateJoined = faker.date.recent(100);
+    this.email = this.email;
   }
 }

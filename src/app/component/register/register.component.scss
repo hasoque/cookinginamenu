@@ -1,7 +1,18 @@
-.red-icon {
+.red-icon{
   color: red;
-}
-
+  margin: auto;
+  transition: .5s;
+ }
+ .blue-icon{
+   color: lightblue;
+   margin: auto;
+   transition: .5s;
+ }
+ .green-icon{
+   color: rgb(100, 255, 100);
+   margin: auto;
+   transition: .5s;
+ }
 .register-input {
-  height: 30px;
+  height: 40px;
 }

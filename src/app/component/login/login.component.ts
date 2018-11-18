@@ -34,11 +34,4 @@ export class LoginComponent implements OnInit, ModalComponent {
       this.dialog.dialogModal.display(false);
     }, 'light')];
   }
-
-  getUserModel() {
-    const model = new UserModel();
-    model.name = this.username;
-    model.password = this.password;
-    return model;
-  }
 }

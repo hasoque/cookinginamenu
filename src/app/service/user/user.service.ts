@@ -35,7 +35,7 @@ export class UserService {
    * @param user user to update or insert
    */
   putUser(user: UserModel): boolean {
-    return false;
+    return true;
   }
 
   getContributionTags(id: number) {

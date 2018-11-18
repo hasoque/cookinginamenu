@@ -1,17 +1,26 @@
 <div class="form-group row">
-  <label class="col-lg-4">Username</label>
-  <input class="register-input form-control col-lg-7" type="text" required>
-  <span class="col-lg-1 fa fa-warning red-icon"></span>
-  <br>
-  <label class="col-lg-4">Email</label>
-  <input class="register-input form-control col-lg-7" type="text" required>
-  <span class="col-lg-1 fa fa-warning red-icon"></span>
-  <br>
-  <label class="col-lg-4">Password</label>
-  <input class="register-input form-control col-lg-7" type="password" required>
-  <span class="col-lg-1 fa fa-warning red-icon"></span>
-  <br>
-  <label class="col-lg-4">Confim Password</label>
-  <input class="register-input form-control col-lg-7" type="password" required>
-  <span class="col-lg-1 fa fa-warning red-icon"></span>
+
+  <div class="col-12" style="margin-top: 20px"></div>
+
+  <label class="col-2 fa fa-user fa-2x blue-icon"></label>
+  <input [(ngModel)]="username" placeholder="Username" class="register-input form-control col-9" type="text" required>
+  <span class="col-lg-1 fa  {{username.length !== 0 ? 'fa-check green-icon':'fa-warning red-icon'}}"></span>
+
+  <div class="col-12" style="margin-top: 8px"></div>
+
+  <label class="col-2 fa fa-envelope fa-2x blue-icon"></label>
+  <input [(ngModel)]="email" placeholder="Email" class="register-input form-control col-9" type="email" required>
+  <span class="col-lg-1 fa  {{email.length !== 0 ? 'fa-check green-icon':'fa-warning red-icon'}}"></span>
+
+  <div class="col-12" style="margin-top: 8px"></div>
+
+  <label class="col-2 fa fa-lock fa-2x blue-icon"></label>
+  <input [(ngModel)]="password" placeholder="Password" class="register-input form-control col-9" type="password" required>
+  <span class="col-lg-1 fa {{password.length !== 0 ? 'fa-check green-icon':'fa-warning red-icon'}}"></span>
+
+  <div class="col-12" style="margin-top: 8px"></div>
+
+  <label class="col-2 fa fa-lock fa-2x blue-icon"></label>
+  <input [(ngModel)]="confirmpass" placeholder="Confirm Password" class="register-input form-control col-9" type="password" required>
+  <span class="col-lg-1 fa {{password === confirmpass && confirmpass.length !== 0 ? 'fa-check green-icon':'fa-warning red-icon'}}"></span>
 </div>
