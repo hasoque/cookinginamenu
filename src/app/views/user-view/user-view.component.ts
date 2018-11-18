@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserModel, ReviewedRecipe, TagRates } from 'src/app/model/user-model';
 import { RecipeModel } from 'src/app/model/recipe-model';
 import { DialogService } from 'src/app/service/dialog.service';
@@ -13,11 +13,12 @@ import { EditUserComponent } from 'src/app/component/edit-user/edit-user.compone
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
-export class UserViewComponent implements OnInit {
+export class UserViewComponent implements OnInit, OnDestroy {
   info: UserModel;
   topreviews: Array<ReviewedRecipe>;
   toprecipes: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
+  sub: any;
 
   constructor(private dialog: DialogService, private uservice: UserService,
      private recipeservice: RecipeDataService, private reviewservice: ReviewsDataService,
@@ -25,7 +26,7 @@ export class UserViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actvroute.paramMap.subscribe(params => {
+    this.sub = this.actvroute.paramMap.subscribe(params => {
       this.info = this.uservice.getUser(parseInt(params.get('id'), 10));
       this.topreviews = this.uservice.getReviewdRecipes(this.info.id);
       this.toprecipes = this.recipeservice.searchForItems('', [], [], 3);
@@ -35,6 +36,10 @@ export class UserViewComponent implements OnInit {
 
   onFollowBtn() {
     this.uservice.followUser(this.info.id);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   formatFollower(num: number): string {

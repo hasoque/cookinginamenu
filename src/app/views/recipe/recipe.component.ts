@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { RecipeModel } from 'src/app/model/recipe-model';
 import { UserModel } from 'src/app/model/user-model';
 import { ReviewModel } from 'src/app/model/review-model';
@@ -17,13 +17,14 @@ import { ReviewListComponent } from 'src/app/component/review-list/review-list.c
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
-export class RecipeComponent implements OnInit, AfterViewInit {
+export class RecipeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   data: RecipeModel;
   uploader: UserModel;
   similar: Array<RecipeModel>;
   recommended: Array<RecipeModel>;
   reviewlist: Array<ReviewModel>;
+  sub: any;
 
   constructor(private dialog: DialogService, private revservice: ReviewsDataService,
      private recipeservice: RecipeDataService, private userservice: UserService,
@@ -31,7 +32,7 @@ export class RecipeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.actvroute.paramMap.subscribe(params => {
+    this.sub =  this.actvroute.paramMap.subscribe(params => {
       console.log(params);
       this.data = this.recipeservice.getRecipe(parseInt(params.get('id'), 10));
       this.uploader = this.userservice.getUser(this.data.uploaderid);
@@ -39,6 +40,10 @@ export class RecipeComponent implements OnInit, AfterViewInit {
       this.recommended = this.recipeservice.searchForItems('', [], [], 5);
       this.reviewlist = this.revservice.getReviewsFrom(this.data.id, 5);
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   ngAfterViewInit() {
