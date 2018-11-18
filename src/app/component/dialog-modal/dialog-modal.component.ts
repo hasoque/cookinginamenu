@@ -1,10 +1,8 @@
-import { Component, OnInit, ViewChild, Input, ViewContainerRef, Directive, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, Directive, ComponentFactoryResolver, Renderer2, Inject } from '@angular/core';
 import { Type } from '@angular/compiler/src/core';
 import { ModalComponent } from 'src/app/model/editable-component';
-import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
-import { EditUserComponent } from '../edit-user/edit-user.component';
-import { EditReviewComponent } from '../edit-review/edit-review.component';
 import { DialogService } from 'src/app/service/dialog.service';
+import { DOCUMENT } from '@angular/common';
 
 @Directive({
   selector: '[appHost]',
@@ -57,13 +55,17 @@ export class DialogModalComponent implements OnInit {
 
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
-    private dialog: DialogService) {
- }
+    private dialog: DialogService, private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document) {
+  }
 
   public display(visible: boolean) {
     this.visible = visible;
     if (visible) {
       this.createView();
+      this.renderer.addClass(this.document.body, 'body-noscroll');
+    } else {
+      this.renderer.removeClass(this.document.body, 'body-noscroll');
     }
     setTimeout(() => this.visibleAnimate = visible, 150);
   }
