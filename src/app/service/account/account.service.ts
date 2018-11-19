@@ -21,6 +21,10 @@ export class AccountService {
     return this.user;
   }
 
+  addToFavorites(recipeid: number) {
+
+  }
+
   /**
    * verify the user to login
    * @param username username input string[_A-Za-z0-9]

@@ -16,7 +16,7 @@ export class RecipeDataService {
    * @param searchi ingredients
    * @param chunk item from chunk * 5 to chunk * 5 + 5
    */
-  searchForItems(searchq: string, searcht: Array<string>, searchi: Array<string>, chunk: number): Array<RecipeModel> {
+  searchForItems(searchq: String, searcht: Array<String>, searchi: Array<String>, chunk: number): Array<RecipeModel> {
     return [new RecipeModel()
       , new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel()];
 
@@ -36,6 +36,10 @@ export class RecipeDataService {
    * @param uploader uploader of recipe
    */
   putRecipe(model: RecipeModel, uploader: UserModel) {
+
+  }
+
+  getFavoriteRecipes() {
 
   }
 }

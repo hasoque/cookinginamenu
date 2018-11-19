@@ -11,13 +11,14 @@ import { EditRecipeComponent } from 'src/app/component/edit-recipe/edit-recipe.c
 import { ModalButton } from 'src/app/component/dialog-modal/dialog-modal.component';
 import { EditReviewComponent } from 'src/app/component/edit-review/edit-review.component';
 import { ReviewListComponent } from 'src/app/component/review-list/review-list.component';
+import { AccountService } from 'src/app/service/account/account.service';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
-export class RecipeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class RecipeComponent implements OnInit, OnDestroy {
 
   data: RecipeModel;
   uploader: UserModel;
@@ -28,7 +29,7 @@ export class RecipeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private dialog: DialogService, private revservice: ReviewsDataService,
      private recipeservice: RecipeDataService, private userservice: UserService,
-      private actvroute: ActivatedRoute) {
+      private actvroute: ActivatedRoute, private account: AccountService) {
   }
 
   ngOnInit() {
@@ -46,8 +47,8 @@ export class RecipeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  ngAfterViewInit() {
-
+  addToFavorites() {
+    this.account.addToFavorites(this.data.id);
   }
 
   onReviewRecipe() {

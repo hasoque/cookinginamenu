@@ -7,8 +7,9 @@
           <h3 class="card-title">{{data.name.toUpperCase()}}</h3>
           <h6 class="card-subtitle">Uploaded by: <a [routerLink]="['/user', data.uploaderid]">{{uploader.name}}</a></h6>
           <p class="card-text">{{data.description}}</p>
-          <app-rate-icon [score]="data.avgrating"></app-rate-icon>
-          <button (click)="editRecipe()">Edit</button>
+          <app-rate-icon [score]="data.avgrating"></app-rate-icon><br>
+          <button class="btn btn-default btn-sm" (click)="editRecipe()">Edit</button><br>
+          <button class="btn btn-basic btn-sm" (click)="addToFavorites()">Add To Favorites</button>
           <div class="container border border-white">
             <h6>Tags</h6>
             <ul class="list-unstyled row">
