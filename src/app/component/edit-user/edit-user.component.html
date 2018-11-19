@@ -1,8 +1,8 @@
 <div class="container">
   <form class="row">
-    <img class="col-12" alt="image selected">
     <label class="btn btn-default col-12">
-      Choose File <input type="file" hidden accept="image/x-png,image/gif,image/jpeg">
+      <img alt="Choose Image">
+      <input type="file" hidden accept="image/x-png,image/gif,image/jpeg">
     </label>
     <label class="col-lg-3">Username</label>
     <input class="form-control col-lg-9" [(ngModel)]="data.user.name" name="username" />

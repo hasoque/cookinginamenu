@@ -39,7 +39,12 @@ export class RecipeDataService {
 
   }
 
-  getFavoriteRecipes() {
-
+  getFavoriteRecipes(userid: number) {
+    return [new RecipeModel()
+      , new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel()];
+  }
+  getReviewdRecipes(userid: number) {
+    return [new RecipeModel()
+      , new RecipeModel(), new RecipeModel(), new RecipeModel(), new RecipeModel()];
   }
 }

@@ -10,7 +10,8 @@
           <h6>
             <app-rate-icon [score]="info.avgrating"></app-rate-icon> <span style="color:gray">({{info.reviewkarma}})</span>
           </h6>
-          <button (click)="onFollowBtn()" class="btn btn-info" [mdbTooltip]="info.followerCount + ' Followers'">{{formatFollower(info.followerCount)}} Follower(s)</button>
+          <button (click)="onFollowBtn()" class="btn btn-info" [mdbTooltip]="info.followerCount + ' Followers'">{{formatFollower(info.followerCount)}}
+            Follower(s)</button>
           <h6>Joined <span style="color:gray">{{info.dateJoined.toDateString()}}</span></h6>
         </div>
         <div class="list-unstyled row text-left">
@@ -50,20 +51,43 @@
       </li>
     </div>
   </div>
-  <div class="container">
-    <h4>Top Recipe Post</h4>
-    <hr>
-    <div class="list-group">
-      <div class="list-group-item" *ngFor="let item of toprecipes">
-        <div class="row">
-          <div class="col-lg-3">
-            <img src="http://placehold.it/180x120" alt=""></div>
-          <div class="col-lg-9">
-            <a [routerLink]="['/recipe', item.id]">
-              <h5>{{item.name}}</h5>
-            </a>
-            <app-rate-icon [score]="item.avgrating"></app-rate-icon>
-            <small>{{item.description.slice(0,150)}}</small>
+  <div class="card container recipe-list">
+    <div class="card-body">
+      <h4 class="card-title">Top 5 Recipe Post</h4>
+      <hr>
+      <div class="list-group">
+        <div class="list-group-item" *ngFor="let item of toprecipes">
+          <div class="row">
+            <div class="col-lg-3">
+              <img src="http://placehold.it/180x120" alt=""></div>
+            <div class="col-lg-9">
+              <a [routerLink]="['/recipe', item.id]">
+                <h5>{{item.name.toUpperCase()}}</h5>
+              </a>
+              <p><small>{{item.description.slice(0,150)}}</small></p>
+              <app-rate-icon [score]="item.avgrating"></app-rate-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card container recipe-list">
+    <div class="card-body">
+      <h4 class="card-title">Most Favorite 5</h4>
+      <hr>
+      <div class="card-body list-group">
+        <div class="list-group-item" *ngFor="let item of favorites">
+          <div class="row">
+            <div class="col-lg-3">
+              <img src="http://placehold.it/180x120" alt=""></div>
+            <div class="col-lg-9">
+              <a [routerLink]="['/recipe', item.id]">
+                <h5>{{item.name.toUpperCase()}}</h5>
+              </a>
+              <p><small>{{item.description.slice(0,150)}}</small></p>
+              <app-rate-icon [score]="item.avgrating"></app-rate-icon>
+            </div>
           </div>
         </div>
       </div>

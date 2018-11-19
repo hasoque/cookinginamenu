@@ -10,6 +10,7 @@ import { Ingredient, Procedure } from 'src/app/model/recipe-model';
 export class EditRecipeComponent implements OnInit, ModalComponent {
 
   @Input() data: any;
+  imagedata: any;
   view: string;
   constructor() { }
 
@@ -35,5 +36,8 @@ export class EditRecipeComponent implements OnInit, ModalComponent {
 
   deleteIngredient(index: number) {
     this.data.recipe.ingredients.splice(index, 1);
+  }
+  onChange(event: any) {
+    this.imagedata = event.target.files[0];
   }
 }

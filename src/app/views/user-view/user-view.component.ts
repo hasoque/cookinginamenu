@@ -17,6 +17,7 @@ export class UserViewComponent implements OnInit, OnDestroy {
   info: UserModel;
   topreviews: Array<ReviewedRecipe>;
   toprecipes: Array<RecipeModel>;
+  favorites: Array<RecipeModel>;
   contributionstag: Array<TagRates>;
   sub: any;
 
@@ -31,6 +32,7 @@ export class UserViewComponent implements OnInit, OnDestroy {
       this.topreviews = this.uservice.getReviewdRecipes(this.info.id);
       this.toprecipes = this.recipeservice.searchForItems('', [], [], 3);
       this.contributionstag = this.uservice.getContributionTags(this.info.id);
+      this.favorites = this.recipeservice.getFavoriteRecipes(this.info.id);
     });
   }
 
